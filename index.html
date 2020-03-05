@@ -72,13 +72,10 @@
    </g>
   </svg>
 
-  <!--<p id="t"></p>-->
-
   <script defer>
    let
     svgNS = "http://www.w3.org/2000/svg",
     semi = document.getElementById("semi"),
-    t = document.getElementById("t"),
     dtor = n => n*Math.PI/180,
     getPos = (d,r) => {
      let
@@ -95,7 +92,6 @@
      c.setAttributeNS(null,"r",.1)
      c.setAttributeNS(null,"fill","red")
      c.setAttributeNS(null,"stroke","none")
-     t.innerText = `x:${pos.x} y:${pos.y}`
      return c
     }
 
