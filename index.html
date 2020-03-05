@@ -23,7 +23,7 @@
    }
   </style>-->
 
-   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="green"/>
+   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="red"/>
    <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="10" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
@@ -89,14 +89,15 @@
       pos = getPos(d,r)
      c.setAttributeNS(null,"x",pos.x)
      c.setAttributeNS(null,"y",pos.y)
-     c.setAttributeNS(null,"r",.2)
+     c.setAttributeNS(null,"r",1)
      c.setAttributeNS(null,"fill","red")
      c.setAttributeNS(null,"stroke","none")
      return c
     }
-    for(let i=0;i<4;i++){
-     semi.appendChild(createCircle(i,10))
-    }
+
+   for(let i=0;i<4;i++){
+    semi.appendChild(createCircle(i*45,10))
+   }
   </script> 
  </body>
 </html>
