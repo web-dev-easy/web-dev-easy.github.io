@@ -100,8 +100,19 @@
     }
 
    for(let i=0;i<4;i++){
-    let u = createCircle((i*90)-45,10)
-    semi.appendChild(u)
+    let 
+     u = createCircle((i*90)-45,10),
+
+     c = document.createElementNS(svgNS,"circle")
+
+    c.setAttributeNS(null,"x",i*5)
+    c.setAttributeNS(null,"y",0)
+    c.setAttributeNS(null,"r",1)
+    c.setAttributeNS(null,"fill","blue")
+    c.setAttributeNS(null,"stroke","none")
+    t.innerText = `x:${i*5} y:${0}`
+    
+    semi.appendChild(c)
    }
   </script> 
  </body>
