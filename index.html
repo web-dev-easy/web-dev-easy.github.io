@@ -4,15 +4,91 @@
   <meta name="theme-color" content="#2c3e50">
   <title>web dev easy</title>
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+   svg line,svg circle {
+    stroke-width:.1;
+    stroke:"#2c3e50"
+   }
+
+   g circle {
+    fill:"red"
+   }
+  </style>
  </head>
  <body>
   <svg viewBox="-25 -25 50 50" width="100vw" height="100vh">
-   <line x1="0" y1="0" x2="5" y2="0" stroke="#2c3e50" stroke-width=".1"/>
-   <line x1="0" y1="0" x2="-5" y2="0" stroke="#2c3e50" stroke-width=".1"/>
-   <circle cx="0" cy="0" r="5" fill="none" stroke="#2c3e50" stroke-width=".1"/>
+   
+   <circle cx="0" cy="0" r=".5" fill="red"/>
+   <circle cx="0" cy="0" r="5" fill="none"/>
+   <circle cx="0" cy="0" r="10" fill="none"/>
+   <circle cx="0" cy="0" r="15" fill="none"/>
+   <circle cx="0" cy="0" r="20" fill="none"/>
+
+   <line x1="0" y1="0" x2="5" y2="0"/>
+   <line x1="0" y1="0" x2="-5" y2="0"/>
+   <line x1="5" y1="0" x2="10" y2="0"/>
+   <line x1="-5" y1="0" x2="-10" y2="0"/>
+
    <circle cx="5" cy="0" r=".1" fill="red"/>
    <circle cx="-5" cy="0" r=".1" fill="red"/>
+   <circle cx="10" cy="0" r=".1" fill="red"/>
+   <circle cx="-10" cy="0" r=".1" fill="red"/>
+
+   <g id="semi">
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+   </g>
+
+   <g id="top8">
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+   </g>
+
+   <g id="top16">
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+    <circle r=".1"/>
+   </g>
   </svg>
-  
+  <p id="test"></p>
+  <p id="test2"></p>
+  <script defer>
+   let 
+    t = document.getElementById("test"),
+    t2 = document.getElementById("test2"),
+    dtor = n => n*Math.PI/180,
+    getPos = (d,r) => {
+     let
+      x = Math.cos(dtor(d))*r,
+      y = Math.sin(dtor(d))*r
+     return {x: x,y: y}
+    },
+    pos = getPos(45,10)
+    pos2 = getPos(22.5,10)
+
+   t.innerText = `x:${pos.x} y:${pos.y}`
+   t2.innerText = `x:${pos.x} y:${pos.y}`
+  </script>
  </body>
 </html>
