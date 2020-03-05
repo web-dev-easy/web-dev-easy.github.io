@@ -23,7 +23,7 @@
    }
   </style>-->
 
-   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="red"/>
+   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="10" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
@@ -72,7 +72,7 @@
    </g>
   </svg>
 
-  <p id="t"></p>
+  <!--<p id="t"></p>-->
 
   <script defer>
    let
@@ -90,29 +90,17 @@
      let
       c = document.createElementNS(svgNS,"circle"),
       pos = getPos(d,r)
-     c.setAttributeNS(null,"x",pos.x)
-     c.setAttributeNS(null,"y",pos.y)
-     c.setAttributeNS(null,"r",1)
-     c.setAttributeNS(null,"fill","green")
+     c.setAttributeNS(null,"cx",pos.x)
+     c.setAttributeNS(null,"cy",pos.y)
+     c.setAttributeNS(null,"r",.1)
+     c.setAttributeNS(null,"fill","red")
      c.setAttributeNS(null,"stroke","none")
      t.innerText = `x:${pos.x} y:${pos.y}`
      return c
     }
 
    for(let i=0;i<4;i++){
-    let 
-     u = createCircle((i*90)-45,10),
-
-     c = document.createElementNS(svgNS,"circle")
-
-    c.setAttributeNS(null,"x",i*5)
-    c.setAttributeNS(null,"y",0)
-    c.setAttributeNS(null,"r",1)
-    c.setAttributeNS(null,"fill","blue")
-    c.setAttributeNS(null,"stroke","none")
-    t.innerText = `x:${i*5} y:${0}`
-    
-    semi.appendChild(c)
+    semi.appendChild(createCircle((i*90)-45,10))
    }
   </script> 
  </body>
