@@ -8,7 +8,7 @@
  <body>
   <svg viewBox="-25 -25 50 50" width="100vw" height="100vh">
    
-   <style>
+ <!--  <style>
    line,circle {
     stroke-width:.1;
     stroke:"#2c3e50";
@@ -21,9 +21,9 @@
    g circle {
     fill:"red";
    }
-  </style>
+  </style>-->
 
-   <circle cx="0" cy="0" r="20"/>
+   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="10" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
@@ -39,12 +39,7 @@
    <circle cx="10" cy="0" r=".1" fill="red"/>
    <circle cx="-15" cy="0" r=".1" fill="red"/>
 
-   <g id="semi">
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-   </g>
+   <g id="semi"></g>
 
    <g id="top8">
     <circle r=".1"/>
@@ -77,30 +72,10 @@
    </g>
   </svg>
 
-<!--
-  <p id="test">eee</p>
-  <p id="test2">iii</p>
-
   <script defer>
-
-   let svgNS = "http://www.w3.org/2000/svg";  
-
-   function createCircle()
-    {
-     var myCircle = document.createElementNS(svgNS,"circle"); //to create a circle. for rectangle use "rectangle"
-     myCircle.setAttributeNS(null,"id","mycircle");
-     myCircle.setAttributeNS(null,"cx",100);
-     myCircle.setAttributeNS(null,"cy",100);
-     myCircle.setAttributeNS(null,"r",50);
-     myCircle.setAttributeNS(null,"fill","black");
-     myCircle.setAttributeNS(null,"stroke","none");
-
-     document.getElementById("mySVG").appendChild(myCircle);
-   }     
-
-   let 
-    t = document.getElementById("test"),
-    t2 = document.getElementById("test2"),
+   let
+    svgNS = "http://www.w3.org/2000/svg",
+    semi = document.getElementById(semi),
     dtor = n => n*Math.PI/180,
     getPos = (d,r) => {
      let
@@ -108,11 +83,20 @@
       y = Math.sin(dtor(d))*r
      return {x: x,y: y}
     },
-    pos = getPos(45,10),
-    pos2 = getPos(22.5,10)
-
-   t.innerText = `x:${pos.x} y:${pos.y}`
-   t2.innerText = `x:${pos2.x} y:${pos2.y}`
-  </script> -->
+    createCircle = (d,r) => {
+     let
+      c = document.createElementNS(svgNS,"circle"),
+      pos = getPos(d,r)
+     c.setAttributeNS(null,"x",pos.x)
+     c.setAttributeNS(null,"y",pos.y)
+     c.setAttributeNS(null,"r",.2)
+     c.setAttributeNS(null,"fill","red")
+     c.setAttributeNS(null,"stroke","none")
+     return c
+    }
+    for(let i=0;i<4;i++){
+     semi.appendChild(createCircle(i,10))
+    }
+  </script> 
  </body>
 </html>
