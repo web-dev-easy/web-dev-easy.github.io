@@ -24,7 +24,7 @@
   </style>-->
 
    <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="green"/>
-   <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="blue"/>
+   <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="10" fill="none" stroke-width=".1" stroke="red"/>
    <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r=".5" fill="none" stroke-width=".1" stroke="green"/>
@@ -39,6 +39,8 @@
 
   </svg>
 
+  <p id="test"></p>
+
   <script defer>
    let
     gId = n => document.getElementById(n),
@@ -48,6 +50,7 @@
     s = gId("semi"),
     t8 = gId("top8"),
     t16 = gId("top16"),
+    t = gId("test"),
 
     dtor = n => n*Math.PI/180,
 
@@ -65,6 +68,8 @@
     t8p = Array.from({lenght:8},(_,i) => getPos((i*45)-22.5,15)),
     t16b = Array.from({lenght:8},(_,i) => getPos((i*45)-22.5,20)),
     t16p = Array.from({lenght:16},(_,i) => getPos((i*22.5)-11.25,20)),
+
+    test.innerText = t8p[5].y
 
     svgNS = "http://www.w3.org/2000/svg",
 
