@@ -29,29 +29,24 @@
    <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r=".5" fill="none" stroke-width=".1" stroke="green"/>
 
-   <line x1="0" y1="0" x2="25" y2="0"/>
-   <line x1="0" y1="0" x2="-5" y2="0"/>
-   <line x1="5" y1="0" x2="10" y2="0"/>
-   <line x1="-5" y1="0" x2="-10" y2="0"/>
-
-   <circle cx="5" cy="0" r=".1" fill="red"/>
-   <circle cx="-5" cy="0" r=".1" fill="red"/>
-   <circle cx="10" cy="0" r=".1" fill="red"/>
-   <circle cx="-15" cy="0" r=".1" fill="red"/>
+   <g id="final"></g>
 
    <g id="semi"></g>
 
    <g id="top8"></g>
 
    <g id="top16"></g>
+
   </svg>
 
   <script defer>
    let
+    gId = n => document.getElementById(n),
     svgNS = "http://www.w3.org/2000/svg",
-    semi = document.getElementById("semi"),
-    top8 = document.getElementById("top8"),
-    top16 = document.getElementById("top16"),
+    f = gId("final"),
+    s = gId("semi"),
+    t8 = gId("top8"),
+    t16 = gId("top16"),
     dtor = n => n*Math.PI/180,
     getPos = (d,r) => {
      let
@@ -71,16 +66,20 @@
      return c
     }
 
+   for(let i=0;i<2;i++){
+    f.appendChild(createCircle((i*180)-90,5))
+   }
+
    for(let i=0;i<4;i++){
-    semi.appendChild(createCircle((i*90)-45,10))
+    s.appendChild(createCircle((i*90)-45,10))
    }
 
    for(let i=0;i<8;i++){
-    top8.appendChild(createCircle((i*45)-22.5,15))
+    t8.appendChild(createCircle((i*45)-22.5,15))
    }
 
    for(let i=0;i<16;i++){
-    top16.appendChild(createCircle((i*22.5)-11.25,20))
+    t16.appendChild(createCircle((i*22.5)-11.25,20))
    }
   </script> 
  </body>
