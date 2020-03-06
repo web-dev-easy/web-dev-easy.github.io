@@ -80,15 +80,12 @@
      return c
     },
 
-    gN = (n,o) => {
-     let r = document.createElementNS("http://www.w3.org/2000/svg",n)
-
-     for(x in o){
-      r.setAttributeNS(null,x,o[x])
-     }
-
-     return r
-    }
+    gN = (n, v) =>{
+     n = document.createElementNS("http://www.w3.org/2000/svg", n);
+     for (var p in v)
+     n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return "-" + m.toLowerCase(); }), v[p]);
+     return n
+}
 
    for(let i=0;i<2;i++){
     f.appendChild(createCircle((i*180)-90,5))
@@ -109,7 +106,7 @@
    t16p.forEach(i=>{
     c.appendChild(gN("path",
      {stroke:"black",
-      stroke-width:.1,
+      strokeWidth:.1,
       d:`M${i.x} ${i.y}
       L${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y}
       L${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}
