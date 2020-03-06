@@ -58,13 +58,13 @@
      return {x: x,y: y}
     },
 
-    fp = Array.from({lenght:2},a => getPos((a*180)-90,5)),
-    sb = Array.from({lenght:2},a => getPos((a*180)-90,10)),
-    sp = Array.from({lenght:4},a => getPos((a*90)-45,10)),
-    t8b = Array.from({lenght:4},a => getPos((a*90)-45,15)),
-    t8p = Array.from({lenght:8},a => getPos((a*45)-22.5,15)),
-    t16b = Array.from({lenght:8},a => getPos((a*45)-22.5,20)),
-    t16p = Array.from({lenght:16},a => getPos((a*22.5)-11.25,20)),
+    fp = Array.from({lenght:2},(_,i) => getPos((i*180)-90,5)),
+    sb = Array.from({lenght:2},(_,i) => getPos((i*180)-90,10)),
+    sp = Array.from({lenght:4},(_,i) => getPos((i*90)-45,10)),
+    t8b = Array.from({lenght:4},(_,i) => getPos((i*90)-45,15)),
+    t8p = Array.from({lenght:8},(_,i) => getPos((i*45)-22.5,15)),
+    t16b = Array.from({lenght:8},(_,i) => getPos((i*45)-22.5,20)),
+    t16p = Array.from({lenght:16},(_,i) => getPos((i*22.5)-11.25,20)),
 
     svgNS = "http://www.w3.org/2000/svg",
 
