@@ -41,41 +41,17 @@
 
    <g id="semi"></g>
 
-   <g id="top8">
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-   </g>
+   <g id="top8></g>
 
-   <g id="top16">
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-    <circle r=".1"/>
-   </g>
+   <g id="top16"></g>
   </svg>
 
   <script defer>
    let
     svgNS = "http://www.w3.org/2000/svg",
     semi = document.getElementById("semi"),
+    top8 = document.getElementById("top8"),
+    top16 = document.getElementById("top16"),
     dtor = n => n*Math.PI/180,
     getPos = (d,r) => {
      let
@@ -89,7 +65,7 @@
       pos = getPos(d,r)
      c.setAttributeNS(null,"cx",pos.x)
      c.setAttributeNS(null,"cy",pos.y)
-     c.setAttributeNS(null,"r",.1)
+     c.setAttributeNS(null,"r",.3)
      c.setAttributeNS(null,"fill","red")
      c.setAttributeNS(null,"stroke","none")
      return c
@@ -97,6 +73,14 @@
 
    for(let i=0;i<4;i++){
     semi.appendChild(createCircle((i*90)-45,10))
+   }
+
+   for(let i=0;i<8;i++){
+    top8.appendChild(createCircle((i*45)-22.5,15))
+   }
+
+   for(let i=0;i<16;i++){
+    top8.appendChild(createCircle((i*22.5)11.25,20))
    }
   </script> 
  </body>
