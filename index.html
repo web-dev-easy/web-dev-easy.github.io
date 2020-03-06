@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="./css/style.css">
  </head>
  <body>
-  <svg viewBox="-25 -25 50 50" width="100vw" height="100vh">
+  <svg id="chart" viewBox="-25 -25 50 50" width="100vw" height="100vh">
    
  <!--  <style>
    line,circle {
@@ -42,18 +42,32 @@
   <script defer>
    let
     gId = n => document.getElementById(n),
-    svgNS = "http://www.w3.org/2000/svg",
+    
+    c = gId("chart"),
     f = gId("final"),
     s = gId("semi"),
     t8 = gId("top8"),
     t16 = gId("top16"),
+
     dtor = n => n*Math.PI/180,
+
     getPos = (d,r) => {
      let
       x = Math.cos(dtor(d))*r,
       y = Math.sin(dtor(d))*r
      return {x: x,y: y}
     },
+
+    fp = Array.from({lenght:2},a => getPos((a*180)-90,5)),
+    sb = Array.from({lenght:2},a => getPos((a*180)-90,10)),
+    sp = Array.from({lenght:4},a => getPos((a*90)-45,10)),
+    t8b = Array.from({lenght:4},a => getPos((a*90)-45,15)),
+    t8p = Array.from({lenght:8},a => getPos((a*45)-22.5,15)),
+    t16b = Array.from({lenght:8},a => getPos((a*45)-22.5,20)),
+    t16p = Array.from({lenght:16},a => getPos((a*22.5)-11.25,20)),
+
+    svgNS = "http://www.w3.org/2000/svg",
+
     createCircle = (d,r) => {
      let
       c = document.createElementNS(svgNS,"circle"),
@@ -64,6 +78,16 @@
      c.setAttributeNS(null,"fill","red")
      c.setAttributeNS(null,"stroke","none")
      return c
+    },
+
+    gN = (n,o) => {
+     let r = document.createElementNS("http://www.w3.org/2000/svg",n)
+
+     for(x in o){
+      r.setAttributeNS(null,x,o[x])
+     }
+
+     return r
     }
 
    for(let i=0;i<2;i++){
@@ -81,6 +105,21 @@
    for(let i=0;i<16;i++){
     t16.appendChild(createCircle((i*22.5)-11.25,20))
    }
+
+   t16p.forEach(i=>{
+    c.appendChild(gN("path",
+     {stroke:"black",
+      stroke-width:.1,
+      d:`M${i.x} ${i.y}
+      L${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y}
+      L${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}
+      L${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y}
+      L${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y}
+      L${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y}
+      L${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y}
+      L0 0`}))
+   })
+
   </script> 
  </body>
 </html>
