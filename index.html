@@ -69,22 +69,6 @@
     t16b = Array.from({length:8},(_,i) => getPos((i*45)-22.5,20)),
     t16p = Array.from({length:16},(_,i) => getPos((i*22.5)-11.25,20)),
 
-    
-
-    svgNS = "http://www.w3.org/2000/svg",
-
-    createCircle = (d,r) => {
-     let
-      c = document.createElementNS(svgNS,"circle"),
-      pos = getPos(d,r)
-     c.setAttributeNS(null,"cx",pos.x)
-     c.setAttributeNS(null,"cy",pos.y)
-     c.setAttributeNS(null,"r",.3)
-     c.setAttributeNS(null,"fill","#48dc99")
-     c.setAttributeNS(null,"stroke","none")
-     return c
-    },
-
     gN = (n, v) =>{
      n = document.createElementNS("http://www.w3.org/2000/svg", n);
      for (var p in v){
@@ -93,8 +77,8 @@
      return n
     }
 
-   for(let i=0;i<2;i++){
-    f.appendChild(gN("path",{d:`M ${fp[i].x} ${fp[i].y} L 0 0`,stroke:"#098765",strokeWidth:.3}))
+   for(let i=0;i<sp.length;i++){
+    f.appendChild(gN("path",{d:`M ${sp[i].x} ${sp[i].y} L ${sb[Math.floor(i/2)].x} ${sb[Math.floor(i/2)].y} L 0 0`,stroke:"#098765",strokeWidth:.3}))
    }
 
    for(let i=0;i<4;i++){
