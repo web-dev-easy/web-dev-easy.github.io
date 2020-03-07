@@ -23,12 +23,6 @@
    }
   </style>
 
-   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="#7c34a0"/>
-   <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="green"/>
-   <circle cx="0" cy="0" r="10" fill="none" stroke-width=".1" stroke="#7c34a0"/>
-   <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
-   <circle cx="0" cy="0" r=".5" fill="none" stroke-width=".1" stroke="green"/>-->
-
    <g id="final"></g>
 
    <g id="semi"></g>
@@ -38,8 +32,6 @@
    <g id="top16"></g>
 
   </svg>
-
-  <p id="test"></p>
 
   <script defer>
    let
@@ -78,7 +70,7 @@
     }
 
    for(let i=0;i<t16p.length;i++){
-    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} L ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}  L ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} L ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
+    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} A 20 20 0 0 0 ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} A 15 15 0 0 0 ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} A 10 10 0 0 0 ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
    }
 
    for(let i=0;i<2;i++){
@@ -96,38 +88,6 @@
    for(let i=0;i<t16p.length;i++){
     t8.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:1,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
    }
-
-   for(let i=0;i<t16p.length;i++){
-    t16.appendChild(gN("path",{
-      stroke:"#555555",
-      d:`M ${i.x} ${i.y} 
-      L ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} 
-      L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} 
-      L ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} 
-      L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} 
-      L ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} 
-      L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} 
-      L 0 0`
-    }))
-
-   }
-
-   t16p.forEach(i=>{
-    c.appendChild(gN("path",
-     {stroke:"black",
-      d:`M ${i.x} ${i.y}
-      L ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} 
-      L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} 
-      L ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} 
-      L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} 
-      L ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} 
-      L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} 
-      L 0 0`}))
-   })
-
-   t8p.forEach(i=>{
-    c.appendChild(gN("circle",{cx:i.x,cy:i.y,r:1,fill:"#42e050"}))
-   })
 
   </script> 
  </body>
