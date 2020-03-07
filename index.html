@@ -94,7 +94,7 @@
     }
 
    for(let i=0;i<2;i++){
-    f.appendChild(gN("path",{d:`M ${fp[i].x} ${fp[i].y} L 0 0`,stroke:"#555555",strokeWidth:.3}))
+    f.appendChild(gN("path",{d:`M ${fp[i].x} ${fp[i].y} L 0 0`,stroke:"#671490",strokeWidth:.3}))
    }
 
    for(let i=0;i<4;i++){
@@ -109,13 +109,13 @@
     t16.appendChild(gN("path",{
       stroke:"#555555",
       d:`M${i.x} ${i.y}
-      L${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y}
-      L${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}
-      L${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y}
-      L${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y}
-      L${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y}
-      L${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y}
-      L0 0`
+      L ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y}
+      L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}
+      L ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y}
+      L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y}
+      L ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y}
+      L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y}
+      L 0 0`
     }))
 
    }
