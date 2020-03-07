@@ -101,8 +101,19 @@
     s.appendChild(gN("circle",{cx:sp[i].x,cy:sp[i].y,r:1,fill:"#48dc99",stroke:"none"}))
    }
 
-   for(let i=0;i<16;i++){
-    t16.appendChild(createCircle((i*22.5)-11.25,20))
+   for(let i=0;i<t16p.length;i++){
+    c.appendChild(gN("path",{
+      stroke:"#555555",
+      d:`M${i.x} ${i.y}
+      L${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y}
+      L${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}
+      L${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y}
+      L${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y}
+      L${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y}
+      L${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y}
+      L0 0`
+    }))
+
    }
 
    t16p.forEach(i=>{
