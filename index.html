@@ -77,8 +77,12 @@
      return n
     }
 
-   for(let i=0;i<t8p.length;i++){
-    f.appendChild(gN("path",{d:`M ${t8p[i].x} ${t8p[i].y} L ${t8b[Math.floor(i/2)].x} ${t8b[Math.floor(i/2)].y} L ${sp[Math.floor(i/2)].x} ${sp[Math.floor(i/2)].y} L ${sb[Math.floor(i/4)].x} ${sb[Math.floor(i/4)].y} L ${fp[Math.floor(i/4)].x} ${fp[Math.floor(i/4)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
+   for(let i=0;i<t16p.length;i++){
+    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} L ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}  L ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} L ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
+   }
+
+   for(let i=0;i<2;i++){
+    s.appendChild(gN("circle",{cx:fp[i].x,cy:fp[i].y,r:1,fill:`hsl(${i*180} 80% 80%)`,stroke:"none"}))
    }
 
    for(let i=0;i<4;i++){
@@ -86,7 +90,11 @@
    }
 
    for(let i=0;i<t8p.length;i++){
-    t8.appendChild(gN("circle",{cx:t8p[i].x,cy:t8p[i].y,r:1,fill:"#c0226f",stroke:"none"}))
+    t8.appendChild(gN("circle",{cx:t8p[i].x,cy:t8p[i].y,r:1,fill:`hsl(${i*45} 80% 80%)`,stroke:"none"}))
+   }
+
+   for(let i=0;i<t16p.length;i++){
+    t8.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:1,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
    }
 
    for(let i=0;i<t16p.length;i++){
