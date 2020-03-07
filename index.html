@@ -39,7 +39,7 @@
 
   </svg>
 
-  <p id="test">ggg</p>
+  <p id="test"></p>
 
   <script defer>
    let
@@ -110,8 +110,7 @@
 
    t16p.forEach(i=>{
     c.appendChild(gN("path",
-     {stroke:"black",
-      strokeWidth:.1,
+     {
       d:`M${i.x} ${i.y}
       L${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y}
       L${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}
