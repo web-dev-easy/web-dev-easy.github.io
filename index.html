@@ -90,7 +90,7 @@
      for (var p in v){
       n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return "-" + m.toLowerCase(); }), v[p]);
      }
-    return n
+     return n
     }
 
    for(let i=0;i<2;i++){
@@ -98,7 +98,7 @@
    }
 
    for(let i=0;i<4;i++){
-    s.appendChild(createCircle((i*90)-45,10))
+    s.appendChild(gN("circle",{cx:sp[i].x,cy:sp[i].y,r:1,fill:"#48dc99",stroke:"none"}))
    }
 
    for(let i=0;i<16;i++){
