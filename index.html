@@ -43,13 +43,13 @@
      return {x: x,y: y}
     },
 
-    fp = Array.from({length:2},(_,i) => getPos((i*180)-90,5)),
-    sb = Array.from({length:2},(_,i) => getPos((i*180)-90,10)),
-    sp = Array.from({length:4},(_,i) => getPos((i*90)-135,10)),
-    t8b = Array.from({length:4},(_,i) => getPos((i*90)-135,15)),
-    t8p = Array.from({length:8},(_,i) => getPos((i*45)-157.5,15)),
-    t16b = Array.from({length:8},(_,i) => getPos((i*45)-157.5,20)),
-    t16p = Array.from({length:16},(_,i) => getPos((i*22.5)-168.75,20)),
+    fp = Array.from({length:2},(_,i) => getPos((i*180),5)),
+    sb = Array.from({length:2},(_,i) => getPos((i*180),10)),
+    sp = Array.from({length:4},(_,i) => getPos((i*90)-45,10)),
+    t8b = Array.from({length:4},(_,i) => getPos((i*90)-45,15)),
+    t8p = Array.from({length:8},(_,i) => getPos((i*45)-67.5,15)),
+    t16b = Array.from({length:8},(_,i) => getPos((i*45)-67.5,20)),
+    t16p = Array.from({length:16},(_,i) => getPos((i*22.5)-78.75,20)),
 
     gN = (n, v) =>{
      n = document.createElementNS("http://www.w3.org/2000/svg", n);
@@ -71,16 +71,16 @@
     s.appendChild(gN("circle",{cx:fp[i].x,cy:fp[i].y,r:.5,fill:`hsl(${i*180} 80% 80%)`,stroke:"none"}))
    }
 
-   for(let i=0;i<4;i++){
+ <!--  for(let i=0;i<4;i++){
     s.appendChild(gN("circle",{cx:sp[i].x,cy:sp[i].y,r:.4,fill:`hsl(${i*90} 80% 80%)`,stroke:"none"}))
    }
 
    for(let i=0;i<t8p.length;i++){
     t8.appendChild(gN("circle",{cx:t8p[i].x,cy:t8p[i].y,r:.3,fill:`hsl(${i*45} 80% 80%)`,stroke:"none"}))
-   }
+   }-->
 
    for(let i=0;i<t16p.length;i++){
-    t8.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
+    t8.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:.4,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
    }
 
   </script> 
