@@ -62,23 +62,12 @@
 
    for(let i=0;i<t16p.length;i++){
     let
-     j = i%2===0?1:0
+     j = i%2<1?1:0
      k = i%4<2?1:0
      l = i%8<4?1:0
-    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} A 20 20 0 0 ${j} ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} A 15 15 0 0 ${k} ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} A 10 10 0 0 ${l} ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} A 5 5 0 0 0 ${fb[Math.floor(i/16)].x} ${fb[Math.floor(i/16)].y} L 0 0`,stroke:"#eeeeee",strokeWidth:.2,fill:"none"}))
+     m = i%16<8?1:0
+    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} A 20 20 0 0 ${j} ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} A 15 15 0 0 ${k} ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} A 10 10 0 0 ${l} ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} A 5 5 0 0 ${m} ${fb[Math.floor(i/16)].x} ${fb[Math.floor(i/16)].y} L 0 0`,stroke:"#eeeeee",strokeWidth:.2,fill:"none"}))
    }
-
-   for(let i=0;i<2;i++){
-    s.appendChild(gN("circle",{cx:fp[i].x,cy:fp[i].y,r:.5,fill:`hsl(${i*180} 80% 80%)`,stroke:"none"}))
-   }
-
-   /*for(let i=0;i<4;i++){
-    s.appendChild(gN("circle",{cx:sp[i].x,cy:sp[i].y,r:.4,fill:`hsl(${i*90} 80% 80%)`,stroke:"none"}))
-   }
-
-   for(let i=0;i<t8p.length;i++){
-    t8.appendChild(gN("circle",{cx:t8p[i].x,cy:t8p[i].y,r:.3,fill:`hsl(${i*45} 80% 80%)`,stroke:"none"}))
-   }*/
 
    for(let i=0;i<t16p.length;i++){
     t8.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:1,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
