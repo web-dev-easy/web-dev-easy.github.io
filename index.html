@@ -70,7 +70,8 @@
     }
 
    for(let i=0;i<t16p.length;i++){
-    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} A 20 20 0 0 0 ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} A 15 15 0 0 0 ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} A 10 10 0 0 0 ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
+    let j = i%2===0?1:0
+    f.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} A 20 20 0 ${j} 0 ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} A 15 15 0 ${j} 0 ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} A 10 10 0 ${j} 0 ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
    }
 
    for(let i=0;i<2;i++){
