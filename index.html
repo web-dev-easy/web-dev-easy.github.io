@@ -77,8 +77,8 @@
      return n
     }
 
-   for(let i=0;i<sp.length;i++){
-    f.appendChild(gN("path",{d:`M ${sp[i].x} ${sp[i].y} L ${sb[Math.floor(i/2)].x} ${sb[Math.floor(i/2)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
+   for(let i=0;i<t8p.length;i++){
+    f.appendChild(gN("path",{d:`M ${t8p[i].x} ${t8p[i].y} L ${t8b[Math.floor(i/2)].x} ${t8b[Math.floor(i/2)].y} L ${sp[Math.floor(i/2)].x} ${sp[Math.floor(i/2)].y} L ${sb[Math.floor(i/4)].x} ${sb[Math.floor(i/4)].y} L ${fp[Math.floor(i/4)].x} ${fp[Math.floor(i/4)].y} L 0 0`,stroke:"#098765",strokeWidth:.3,fill:"none"}))
    }
 
    for(let i=0;i<4;i++){
