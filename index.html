@@ -1,7 +1,7 @@
 <html>
  <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta name="theme-color" content="#2c3e50">
+  <meta name="theme-color" content="#7c34a0">
   <title>web dev easy</title>
   <link rel="stylesheet" href="./css/style.css">
  </head>
@@ -23,7 +23,7 @@
    }
   </style>-->
 
-   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="green"/>
+   <circle cx="0" cy="0" r="20" fill="none" stroke-width=".1" stroke="#7c34a0"/>
    <circle cx="0" cy="0" r="15" fill="none" stroke-width=".1" stroke="green"/>
    <circle cx="0" cy="0" r="10" fill="none" stroke-width=".1" stroke="#7c34a0"/>
    <circle cx="0" cy="0" r="5" fill="none" stroke-width=".1" stroke="green"/>
@@ -87,10 +87,11 @@
 
     gN = (n, v) =>{
      n = document.createElementNS("http://www.w3.org/2000/svg", n);
-     for (var p in v)
-     n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return "-" + m.toLowerCase(); }), v[p]);
-     return n
-}
+     for (var p in v){
+      n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return "-" + m.toLowerCase(); }), v[p]);
+      return n
+     }
+    }
 
    for(let i=0;i<2;i++){
     f.appendChild(createCircle((i*180)-90,5))
