@@ -75,12 +75,13 @@
      mp = gN("mpath",{"xlink:href":`#q${i}r`})*/
 
     var animateMotion = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-    animateMotion.setAttribute("dur","3s");
-    animateMotion.setAttribute("repeatCount","1");
+    animateMotion.setAttribute("dur","1s")
+    animateMotion.setAttribute("repeatCount","1")
     animateMotion.setAttribute("begin",`click`)
-    var mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
+    animateMotion.setAttribute("path",qr[i])
+    /*var mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
     mpath.setAttributeNS("http://www.w3.org/1999/xlink", "href", `#q${i}r`);
-    animateMotion.appendChild(mpath);
+    animateMotion.appendChild(mpath);*/
 
     c.addEventListener("click",pass)
 
