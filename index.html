@@ -66,13 +66,13 @@
     svg.appendChild(gN("path",{id:`q${i}r`,d:qr[i],stroke:"#eeeeee",strokeWidth:.3,strokeLinecap:"square",fill:"none"}))
    }
 
-   for(let i=0;i<qp.length;i++){
+   /*for(let i=0;i<qp.length;i++){
     let c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"})
 
     c.addEventListenner("click",pass)
 
     svg.appendChild(c)
-   }
+   }*/
 
    for(let i=0;i<er.length;i++){
     svg.appendChild(gN("path",{id:`e${i}r`,d:er[i],stroke:"#eeeeee",strokeWidth:.4,strokeLinecap:"square",fill:"none"}))
