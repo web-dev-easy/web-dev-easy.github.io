@@ -69,10 +69,15 @@
    }
 
    for(let i=0;i<qp.length;i++){
-    let c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"})
+    let
+     c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"})
+     am = gN("animateMotion",{dur:"1s",fill:"freeze",begin:"click"}),
+     mp = gN("mpath",{"xmlns:xlink":`#${id}r`})
 
     c.addEventListener("click",pass)
 
+    am.appendChild(mp)
+    c.appendChild(am)
     svg.appendChild(c)
    }
 
