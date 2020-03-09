@@ -13,24 +13,12 @@
  <body>
   <svg id="svgg" viewBox="-25 -25 50 50" width="100vw" height="100vh">
 
-   <g id="final"></g>
-
-   <g id="semi"></g>
-
-   <g id="top8"></g>
-
-   <g id="top16"></g>
-
   </svg>
 
   <script defer>
    let
     gId = n => document.getElementById(n),
-    
-    f = gId("final"),
-    s = gId("semi"),
-    t8 = gId("top8"),
-    t16 = gId("top16"),
+
     svg = gId("svgg"),
 
     dtor = n => n*Math.PI/180,
@@ -44,7 +32,7 @@
 
     fb = Array.from({length:1},(_,i) => getPos(-90,5)),
     fp = Array.from({length:2},(_,i) => getPos((i*180),5)),
-    fr = Array.from({length:2},(_,i) => `M ${fp[i].x} ${fp[i].y} A 20 20 0 0 ${i%2<1?1:0} ${fb[Math.floor(i/2)].x} ${fb[Math.floor(i/2)].y} L 0 0`),
+    fr = Array.from({length:2},(_,i) => `M ${fp[i].x} ${fp[i].y} A 20 20 0 0 ${i%2<1?0:1} ${fb[Math.floor(i/2)].x} ${fb[Math.floor(i/2)].y} L 0 0`),
     sb = Array.from({length:2},(_,i) => getPos((i*180),10)),
     sp = Array.from({length:4},(_,i) => getPos((i*90)-45,10)),
     sr = Array.from({length:4},(_,i) => `M ${sp[i].x} ${sp[i].y} A 10 10 0 0 ${i%2<1?1:0} ${sb[Math.floor(i/2)].x} ${sb[Math.floor(i/2)].y} L ${fp[Math.floor(i/2)].x} ${fp[Math.floor(i/2)].y}`),
@@ -62,15 +50,6 @@
      }
      return n
     }
-
-   /*for(let i=0;i<t16p.length;i++){
-    let
-     j = i%2<1?1:0
-     k = i%4<2?1:0
-     l = i%8<4?1:0
-     m = i%16<8?0:1
-    t16.appendChild(gN("path",{d:`M ${t16p[i].x} ${t16p[i].y} A 20 20 0 0 ${j} ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y} A 15 15 0 0 ${k} ${t8b[Math.floor(i/4)].x} ${t8b[Math.floor(i/4)].y} L ${sp[Math.floor(i/4)].x} ${sp[Math.floor(i/4)].y} A 10 10 0 0 ${l} ${sb[Math.floor(i/8)].x} ${sb[Math.floor(i/8)].y} L ${fp[Math.floor(i/8)].x} ${fp[Math.floor(i/8)].y} A 5 5 0 0 ${m} ${fb[Math.floor(i/16)].x} ${fb[Math.floor(i/16)].y} L 0 0`,stroke:"#eeeeee",strokeWidth:.2,fill:"none"}))
-   }*/
 
    for(let i=0;i<t16r.length;i++){
     svg.appendChild(gN("path",{d:t16r[i],stroke:"#eeeeee",strokeWidth:.3,fill:"none"}))
