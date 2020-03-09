@@ -71,13 +71,20 @@
    for(let i=0;i<qp.length;i++){
     let
      c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"})
-     am = gN("animateMotion",{dur:"1s",fill:"freeze",begin:"click"}),
-     mp = gN("mpath",{"xmlns:xlink":`#${id}r`})
+     /*am = gN("animateMotion",{dur:"1s",fill:"freeze",begin:`q${i}.click`}),
+     mp = gN("mpath",{"xlink:href":`#q${i}r`})*/
+
+    var animateMotion = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    animateMotion.setAttribute("dur","3s");
+    animateMotion.setAttribute("repeatCount","1");
+    var mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
+    mpath.setAttributeNS("http://www.w3.org/1999/xlink", "href", `#q${i}r`);
+    animateMotion.appendChild(mpath);
 
     c.addEventListener("click",pass)
 
-    am.appendChild(mp)
-    c.appendChild(am)
+    /*am.appendChild(mp)*/
+    c.appendChild(animateMotion)
     svg.appendChild(c)
    }
 
