@@ -43,6 +43,9 @@
     qp = Array.from({length:16},(_,i) => getPos((i*22.5)-78.75,20)),
     qr = Array.from({length:16},(_,i) => `M ${qp[i].x} ${qp[i].y} A 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} L ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
 
+    qm = Array.from({length:16},(_,i) => `M 0 0 A 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} L ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
+
+
     gN = (n, v) =>{
      n = document.createElementNS("http://www.w3.org/2000/svg", n);
      for (var p in v){
@@ -78,7 +81,7 @@
     animateMotion.setAttribute("dur","1s")
     animateMotion.setAttribute("repeatCount","1")
     animateMotion.setAttribute("begin",`click`)
-    animateMotion.setAttribute("path",qr[i])
+    animateMotion.setAttribute("path",qm[i])
     /*var mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
     mpath.setAttributeNS("http://www.w3.org/1999/xlink", "href", `#q${i}r`);
     animateMotion.appendChild(mpath);*/
