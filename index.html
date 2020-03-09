@@ -53,13 +53,15 @@
 
     pass = e => {
 
-     let
+     /*let
       id = e.target.getAttributeNS("id"),
       am = gN("animateMotion",{dur:"1s",fill:"freeze"}),
       mp = gN("mpath",{"xmlns:xlink":`#${id}r`})
 
      am.appendChild(mp)
-     e.target.appendChild(am)
+     e.target.appendChild(am)*/
+     e.target.setAttributeNS(null,"fill","#ffffff")
+
     }
 
    for(let i=0;i<qr.length;i++){
