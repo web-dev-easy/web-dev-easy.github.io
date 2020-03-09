@@ -50,7 +50,7 @@
     sr = Array.from({length:4},(_,i) => `M ${sp[i].x} ${sp[i].y} A 10 10 0 0 ${i%2<1?1:0} ${sb[Math.floor(i/2)].x} ${sb[Math.floor(i/2)].y} L ${fp[Math.floor(i/2)].x} ${fp[Math.floor(i/2)].y}`),
     t8b = Array.from({length:4},(_,i) => getPos((i*90)-45,15)),
     t8p = Array.from({length:8},(_,i) => getPos((i*45)-67.5,15)),
-    t8r = Array.from({length:8},(_,i) => `M ${t8p[i].x} ${t8p[i].y} A 15 15 0 0 ${i%2<1?1:0} ${t8b[Math.floor(i/2)].x} ${t8b[Math.floor(i/2)].y} L ${t4p[Math.floor(i/2)].x} ${t4p[Math.floor(i/2)].y}`),
+    t8r = Array.from({length:8},(_,i) => `M ${t8p[i].x} ${t8p[i].y} A 15 15 0 0 ${i%2<1?1:0} ${t8b[Math.floor(i/2)].x} ${t8b[Math.floor(i/2)].y} L ${sp[Math.floor(i/2)].x} ${sp[Math.floor(i/2)].y}`),
     t16b = Array.from({length:8},(_,i) => getPos((i*45)-67.5,20)),
     t16p = Array.from({length:16},(_,i) => getPos((i*22.5)-78.75,20)),
     t16r = Array.from({length:16},(_,i) => `M ${t16p[i].x} ${t16p[i].y} A 20 20 0 0 ${i%2<1?1:0} ${t16b[Math.floor(i/2)].x} ${t16b[Math.floor(i/2)].y} L ${t8p[Math.floor(i/2)].x} ${t8p[Math.floor(i/2)].y}`),
@@ -77,7 +77,7 @@
    }
 
    for(let i=0;i<t16p.length;i++){
-    t16.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
+    svg.appendChild(gN("circle",{cx:t16p[i].x,cy:t16p[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}))
    }
 
    /*for(let i=0;i<t8r.length;i++){
