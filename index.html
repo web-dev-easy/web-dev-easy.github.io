@@ -77,6 +77,7 @@
     var animateMotion = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
     animateMotion.setAttribute("dur","3s");
     animateMotion.setAttribute("repeatCount","1");
+    animateMotion.setAttribute("begin",`q${i}r.click`)
     var mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
     mpath.setAttributeNS("http://www.w3.org/1999/xlink", "href", `#q${i}r`);
     animateMotion.appendChild(mpath);
