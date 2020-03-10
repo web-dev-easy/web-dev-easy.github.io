@@ -39,10 +39,10 @@
     eb = Array.from({length:4},(_,i) => getPos((i*90)-45,15)),
     ep = Array.from({length:8},(_,i) => getPos((i*45)-67.5,15)),
     er = Array.from({length:8},(_,i) => `M ${ep[i].x} ${ep[i].y} A 15 15 0 0 ${i%2<1?1:0} ${eb[f(i,2)].x} ${eb[f(i,2)].y} L ${sp[f(i,2)].x} ${sp[f(i,2)].y}`),
+    em = Array.from({length:8},(_,i) => `M 0 0 a 15 15 0 0 ${i%2<1?1:0} ${eb[f(i,2)].x-ep[i].x} ${eb[f(i,2)].y-ep[i].y} l ${sp[f(i,2)].x-eb[f(i,2)].x} ${sp[f(i,2)].y-eb[f(i,2)].y}`),
     qb = Array.from({length:8},(_,i) => getPos((i*45)-67.5,20)),
     qp = Array.from({length:16},(_,i) => getPos((i*22.5)-78.75,20)),
     qr = Array.from({length:16},(_,i) => `M ${qp[i].x} ${qp[i].y} A 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} L ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
-
     qm = Array.from({length:16},(_,i) => `M 0 0 a 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x-qp[i].x} ${qb[f(i,2)].y-qp[i].y} l ${ep[f(i,2)].x-qb[f(i,2)].x} ${ep[f(i,2)].y-qb[f(i,2)].y}`),
 
 
@@ -55,15 +55,13 @@
     },
 
     pass = e => {
+     e.target.removechild(e.target.children)
 
-     /*let
-      id = e.target.getAttributeNS("id"),
-      am = gN("animateMotion",{dur:"1s",fill:"freeze"}),
-      mp = gN("mpath",{"xmlns:xlink":`#${id}r`})
-
-     am.appendChild(mp)
-     e.target.appendChild(am)*/
-     e.target.setAttributeNS(null,"fill","#ffffff")
+     let
+      /*id = e.target.getAttributeNS("id"),*/
+      am = gN("animateMotion",{path:em[i],dur:"1s",fill:"freeze",begin:`click`})
+     e.target.appendChild(am)
+     e.target.setAttributeNS(null,"fill","#333333")
 
     }
 
@@ -88,17 +86,9 @@
      c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}),
      am = gN("animateMotion",{path:qm[i],dur:"1s",fill:"freeze",begin:`click`})
 
-    /*var animateMotion = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-    animateMotion.setAttribute("dur","1s")
-    animateMotion.setAttribute("repeatCount","1")
-    animateMotion.setAttribute("begin",`click`)
-    animateMotion.setAttribute("path",qm[i])
-    animateMotion.setAttribute("fill","freeze")*/
-
     c.addEventListener("click",pass)
 
     c.appendChild(am)
-    /*c.appendChild(animateMotion)*/
     svg.appendChild(c)
    }
 
