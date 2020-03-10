@@ -71,39 +71,35 @@
     svg.appendChild(gN("path",{id:`q${i}r`,d:qr[i],stroke:"#eeeeee",strokeWidth:.3,strokeLinecap:"square",fill:"none"}))
    }
 
+   for(let i=0;i<er.length;i++){
+    svg.appendChild(gN("path",{d:er[i],stroke:"#eeeeee",strokeWidth:.4,strokeLinecap:"square",fill:"none"}))
+   }
+
+   for(let i=0;i<sr.length;i++){
+    svg.appendChild(gN("path",{d:sr[i],stroke:"#eeeeee",strokeWidth:.5,strokeLinecap:"square",fill:"none"}))
+   }
+
+   for(let i=0;i<fr.length;i++){
+    svg.appendChild(gN("path",{d:fr[i],stroke:"#eeeeee",strokeWidth:.6,strokeLinecap:"square",fill:"none"}))
+   }
+
    for(let i=0;i<qp.length;i++){
     let
-     c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"})
-     /*am = gN("animateMotion",{dur:"1s",fill:"freeze",begin:`q${i}.click`}),
-     mp = gN("mpath",{"xlink:href":`#q${i}r`})*/
+     c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}),
+     am = gN("animateMotion",{path:qm[i],dur:"1s",fill:"freeze",begin:`click`})
 
-    var animateMotion = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+    /*var animateMotion = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
     animateMotion.setAttribute("dur","1s")
     animateMotion.setAttribute("repeatCount","1")
     animateMotion.setAttribute("begin",`click`)
     animateMotion.setAttribute("path",qm[i])
-    animateMotion.setAttribute("fill","freeze")
-    /*var mpath = document.createElementNS('http://www.w3.org/2000/svg','mpath');
-    mpath.setAttributeNS("http://www.w3.org/1999/xlink", "href", `#q${i}r`);
-    animateMotion.appendChild(mpath);*/
+    animateMotion.setAttribute("fill","freeze")*/
 
     c.addEventListener("click",pass)
 
-    /*am.appendChild(mp)*/
-    c.appendChild(animateMotion)
+    c.appendChild(am)
+    /*c.appendChild(animateMotion)*/
     svg.appendChild(c)
-   }
-
-   for(let i=0;i<er.length;i++){
-    svg.appendChild(gN("path",{id:`e${i}r`,d:er[i],stroke:"#eeeeee",strokeWidth:.4,strokeLinecap:"square",fill:"none"}))
-   }
-
-   for(let i=0;i<sr.length;i++){
-    svg.appendChild(gN("path",{id:`s${i}r`,d:sr[i],stroke:"#eeeeee",strokeWidth:.5,strokeLinecap:"square",fill:"none"}))
-   }
-
-   for(let i=0;i<fr.length;i++){
-    svg.appendChild(gN("path",{id:`f${i}r`,d:fr[i],stroke:"#eeeeee",strokeWidth:.6,strokeLinecap:"square",fill:"none"}))
    }
 
   </script> 
