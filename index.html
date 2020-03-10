@@ -43,7 +43,7 @@
     qp = Array.from({length:16},(_,i) => getPos((i*22.5)-78.75,20)),
     qr = Array.from({length:16},(_,i) => `M ${qp[i].x} ${qp[i].y} A 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} L ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
 
-    qm = Array.from({length:16},(_,i) => `M 0 0 a 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} l ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
+    qm = Array.from({length:16},(_,i) => `M 0 0 a 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x-qp[i].x} ${qb[f(i,2)].y-qp[i].y} l ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
 
 
     gN = (n, v) =>{
