@@ -56,9 +56,11 @@
 
     pass = e => {
 
-     while (e.target.firstChild) {
-      e.target.removeChild(e.target.firstChild);
-     }
+     setTimeOut(()=>{
+      while (e.target.firstChild) {
+       e.target.removeChild(e.target.firstChild);
+      }
+     },1000)
 
      /*let
       id = e.target.getAttributeNS("id"),
