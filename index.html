@@ -55,12 +55,15 @@
     },
 
     pass = e => {
-     e.target.removechild(e.target.children)
 
-     let
-      /*id = e.target.getAttributeNS("id"),*/
+     while (e.target.firstChild) {
+      e.target.removeChild(e.target.firstChild);
+     }
+
+     /*let
+      id = e.target.getAttributeNS("id"),
       am = gN("animateMotion",{path:em[i],dur:"1s",fill:"freeze",begin:`click`})
-     e.target.appendChild(am)
+     e.target.appendChild(am)*/
      e.target.setAttributeNS(null,"fill","#333333")
 
     }
