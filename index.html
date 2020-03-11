@@ -45,21 +45,42 @@
     qr = Array.from({length:16},(_,i) => `M ${qp[i].x} ${qp[i].y} A 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} L ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
     qm = Array.from({length:16},(_,i) => `M 0 0 a 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x-qp[i].x} ${qb[f(i,2)].y-qp[i].y} l ${ep[f(i,2)].x-qb[f(i,2)].x} ${ep[f(i,2)].y-qb[f(i,2)].y}`),
 
-
-    gN = (n, v) =>{
-     n = document.createElementNS("http://www.w3.org/2000/svg", n);
+    sN = (n, v) =>{
      for (var p in v){
       n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return "-" + m.toLowerCase(); }), v[p]);
      }
      return n
     },
+    gN = (n, v) =>{
+     n = document.createElementNS("http://www.w3.org/2000/svg", n);
+     sN(n,v)
+     return n
+    },
 
     pass = e => {
+
+     let
+      id = e.target.getAttributeNS("id"),
+      oId = id.replace(/\d\d?/g,(m,p,o,s)=>{
+       let
+        n = Number(m),
+        g = n%2<1?n+1:n-1
+       return g.toString()
+      }),
+      nId = id.replace(/\d\d?/g,(m,p,o,s)=>{
+       let
+        n = Number(m),
+        g = n%2<1?n+1:n-1
+       return g.toString()
+      }),
+      o = gId(oId)
 
      setTimeout(()=>{
       while (e.target.firstChild) {
        e.target.removeChild(e.target.firstChild);
       }
+      sN(e.target,{cx:0,cy:0})
+      o.setAttributeNS(null,"fill","#333333")
      },1000)
 
      /*let
