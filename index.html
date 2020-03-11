@@ -60,7 +60,7 @@
     pass = e => {
 
      let
-      id = e.target.getAttributeNS("id"),
+      id = e.target.getAttributeNS(null,"id"),
       oId = id.replace(/\d\d?/g,(m,p,o,s)=>{
        let
         n = Number(m),
