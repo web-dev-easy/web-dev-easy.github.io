@@ -73,10 +73,11 @@
       o = gId(oId),
       am = gN("animateMotion",{path:nM,dur:"1s",fill:"freeze",begin:`click`})
 
+     e.target.appendChild(am)
+
      while (o.firstChild) {
       o.removeChild(o.firstChild);
      }
-     o.setAttributeNS(null,"fill","#ff3333")
      o.removeEventListener("click",pass)
 
      setTimeout(()=>{
@@ -85,12 +86,6 @@
       }
       sN(e.target,{cx:nP.x,cy:nP.y,id:nId})
      },1000)
-
-     /*let
-      id = e.target.getAttributeNS("id"),
-      am = gN("animateMotion",{path:em[i],dur:"1s",fill:"freeze",begin:`click`})
-     e.target.appendChild(am)*/
-     e.target.setAttributeNS(null,"fill","#3333ff")
 
     }
 
