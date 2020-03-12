@@ -52,13 +52,13 @@
     aP.push(createPoint(i))
    }
 
-   aP.forEach((j,k)=>j.forEach((i,l)=>{
+   /*aP.forEach((j,k)=>j.forEach((i,l)=>{
     let 
      c = cN("circle",{cx:i.x,cy:i.y,r:1,fill:`hsl(${k*30} 95% 75%)`})
     svg.appendChild(c)
    }))
 
-   /*aP.forEach((i,k)=>{
+   aP.forEach((i,k)=>{
     let paD=``,pa
     i.forEach(j=>{
      let pS = l===0?`M ${j.x} ${j.y}`:` L ${j.x} ${j.y}`
