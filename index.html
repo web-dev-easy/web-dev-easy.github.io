@@ -62,25 +62,10 @@
 
      let
       id = e.target.getAttributeNS(null,"id"),
-      oR = id.match(rex)[1],
-      nR = oR=="q"?"e":oR=="e"?"s":oR=="s"?"f":"",
-      idN = Number(id.match(rex)[2]),
-      nIdN = f(idN,2),
-      np = oR=="q"?ep[nIdN]:oR=="e"?sp[nIdN]:oR=="s"?fp[nIdN]:null,
-      lIdN = idn%2<1?idn+1:idn-1,
-      oId = id.replace(/\d\d?/g,(m,p,o,s)=>{
-       let
-        n = Number(m),
-        g = n%2<1?n+1:n-1
-       return g.toString()
-      }),
-      nId = id.replace(/\d\d?/g,(m,p,o,s)=>{
-       let
-        n = Number(m),
-        g = n%2<1?n+1:n-1
-       return g.toString()
-      }),
-      o = gId(`${oR}${lIdN}`)
+      cR = id.match(rex)[1],
+      cN = Number(id.match(rex)[2]),
+      oId = `${cR}${cN%2<1?cN+1:cN-1}`
+      o = gId(oId)
 
      setTimeout(()=>{
       while (e.target.firstChild) {
