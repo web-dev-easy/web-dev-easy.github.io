@@ -33,9 +33,11 @@
     fb = Array.from({length:1},(_,i) => getPos(-90,5)),
     fp = Array.from({length:2},(_,i) => getPos((i*180),5)),
     fr = Array.from({length:2},(_,i) => `M ${fp[i].x} ${fp[i].y} A 5 5 0 0 ${i%2<1?0:1} ${fb[f(i,2)].x} ${fb[f(i,2)].y} L 0 0`),
+    fm = Array.from({length:2},(_,i) => `M 0 0 a 5 5 0 0 ${i%2<1?0:1} ${fb[f(i,2)].x-fp[i].x} ${fb[f(i,2)].y-fp[i].y} v 5`),
     sb = Array.from({length:2},(_,i) => getPos((i*180),10)),
     sp = Array.from({length:4},(_,i) => getPos((i*90)-45,10)),
     sr = Array.from({length:4},(_,i) => `M ${sp[i].x} ${sp[i].y} A 10 10 0 0 ${i%2<1?1:0} ${sb[f(i,2)].x} ${sb[f(i,2)].y} L ${fp[f(i,2)].x} ${fp[f(i,2)].y}`),
+    sm = Array.from({length:4},(_,i) => `M 0 0 a 10 10 0 0 ${i%2<1?1:0} ${sb[f(i,2)].x-sp[i].x} ${sb[f(i,2)].y-sp[i].y} l ${fp[f(i,2)].x-sb[f(i,2)].x} ${fp[f(i,2)].y-sb[f(i,2)].y}`),
     eb = Array.from({length:4},(_,i) => getPos((i*90)-45,15)),
     ep = Array.from({length:8},(_,i) => getPos((i*45)-67.5,15)),
     er = Array.from({length:8},(_,i) => `M ${ep[i].x} ${ep[i].y} A 15 15 0 0 ${i%2<1?1:0} ${eb[f(i,2)].x} ${eb[f(i,2)].y} L ${sp[f(i,2)].x} ${sp[f(i,2)].y}`),
@@ -65,8 +67,11 @@
       cR = id.match(rex)[1],
       cN = Number(id.match(rex)[2]),
       oId = `${cR}${cN%2<1?cN+1:cN-1}`,
+      nId = cR==="q"?`e${f(cN,2)}`:cR==="e"?`s${f(cN,2)}`:cR==="s"?`f${f(cN,2)}`:null,
       nP = cR==="q"?ep[f(cN,2)]:cR==="e"?sp[f(cN,2)]:cR==="s"?fp[f(cN,2)]:null,
-      o = gId(oId)
+      nM = cR==="q"?em[f(cN,2)]:cR==="e"?sm[f(cN,2)]:cR==="s"?fm[f(cN,2)]:null,
+      o = gId(oId),
+      am = gN("animateMotion",{path:nM,dur:"1s",fill:"freeze",begin:`click`})
 
      while (o.firstChild) {
       o.removeChild(o.firstChild);
@@ -78,7 +83,7 @@
       while (e.target.firstChild) {
        e.target.removeChild(e.target.firstChild);
       }
-      sN(e.target,{cx:nP.x,cy:nP.y})
+      sN(e.target,{cx:nP.x,cy:nP.y,id:nId})
      },1000)
 
      /*let
