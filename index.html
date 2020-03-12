@@ -73,8 +73,6 @@
       o = gId(oId),
       am = gN("animateMotion",{path:nM,dur:"1s",fill:"freeze",begin:`click`})
 
-     e.target.appendChild(am)
-
      while (o.firstChild) {
       o.removeChild(o.firstChild);
      }
@@ -85,6 +83,7 @@
        e.target.removeChild(e.target.firstChild);
       }
       sN(e.target,{cx:nP.x,cy:nP.y,id:nId})
+      e.target.appendChild(am)
      },1000)
 
     }
