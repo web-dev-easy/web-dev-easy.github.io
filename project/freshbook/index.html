@@ -1,14 +1,126 @@
 <html>
  <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta name="theme-color" content="#2c3e50">
+  <meta name="theme-color" content="#7c34a0">
   <title>web dev easy</title>
   <link rel="stylesheet" href="../../css/style.css">
-  <script src="../../js/freshbook.js" defer></script>
+  <style>
+   body{
+    background:#7c34a0;
+   }
+  </style>
  </head>
  <body>
-  <header>header</header>
-  <h1>freshbook</h1>
-  <footer>footer</footer>
+  <svg id="svgg" viewBox="-25 -25 50 50" width="100vw" height="100vh" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  </svg>
+
+  <script defer>
+   let
+    gId = n => document.getElementById(n),
+
+    svg = gId("svgg"),
+
+    dtor = n => n*Math.PI/180,f=(x,y)=>Math.floor(x/y),
+
+    getPos = (d,r) => {
+     let
+      x = Math.cos(dtor(d))*r,
+      y = Math.sin(dtor(d))*r
+     return {x: x,y: y}
+    },
+
+    fb = Array.from({length:1},(_,i) => getPos(-90,5)),
+    fp = Array.from({length:2},(_,i) => getPos((i*180),5)),
+    fr = Array.from({length:2},(_,i) => `M ${fp[i].x} ${fp[i].y} A 5 5 0 0 ${i%2<1?0:1} ${fb[f(i,2)].x} ${fb[f(i,2)].y} L 0 0`),
+    fm = Array.from({length:2},(_,i) => `M 0 0 a 5 5 0 0 ${i%2<1?0:1} ${fb[f(i,2)].x-fp[i].x} ${fb[f(i,2)].y-fp[i].y} v 5`),
+    sb = Array.from({length:2},(_,i) => getPos((i*180),10)),
+    sp = Array.from({length:4},(_,i) => getPos((i*90)-45,10)),
+    sr = Array.from({length:4},(_,i) => `M ${sp[i].x} ${sp[i].y} A 10 10 0 0 ${i%2<1?1:0} ${sb[f(i,2)].x} ${sb[f(i,2)].y} L ${fp[f(i,2)].x} ${fp[f(i,2)].y}`),
+    sm = Array.from({length:4},(_,i) => `M 0 0 a 10 10 0 0 ${i%2<1?1:0} ${sb[f(i,2)].x-sp[i].x} ${sb[f(i,2)].y-sp[i].y} l ${fp[f(i,2)].x-sb[f(i,2)].x} ${fp[f(i,2)].y-sb[f(i,2)].y}`),
+    eb = Array.from({length:4},(_,i) => getPos((i*90)-45,15)),
+    ep = Array.from({length:8},(_,i) => getPos((i*45)-67.5,15)),
+    er = Array.from({length:8},(_,i) => `M ${ep[i].x} ${ep[i].y} A 15 15 0 0 ${i%2<1?1:0} ${eb[f(i,2)].x} ${eb[f(i,2)].y} L ${sp[f(i,2)].x} ${sp[f(i,2)].y}`),
+    em = Array.from({length:8},(_,i) => `M 0 0 a 15 15 0 0 ${i%2<1?1:0} ${eb[f(i,2)].x-ep[i].x} ${eb[f(i,2)].y-ep[i].y} l ${sp[f(i,2)].x-eb[f(i,2)].x} ${sp[f(i,2)].y-eb[f(i,2)].y}`),
+    qb = Array.from({length:8},(_,i) => getPos((i*45)-67.5,20)),
+    qp = Array.from({length:16},(_,i) => getPos((i*22.5)-78.75,20)),
+    qr = Array.from({length:16},(_,i) => `M ${qp[i].x} ${qp[i].y} A 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x} ${qb[f(i,2)].y} L ${ep[f(i,2)].x} ${ep[f(i,2)].y}`),
+    qm = Array.from({length:16},(_,i) => `M 0 0 a 20 20 0 0 ${i%2<1?1:0} ${qb[f(i,2)].x-qp[i].x} ${qb[f(i,2)].y-qp[i].y} l ${ep[f(i,2)].x-qb[f(i,2)].x} ${ep[f(i,2)].y-qb[f(i,2)].y}`),
+
+    sN = (n, v) =>{
+     for (var p in v){
+      n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return "-" + m.toLowerCase(); }), v[p]);
+     }
+     return n
+    },
+    gN = (n, v) =>{
+     n = document.createElementNS("http://www.w3.org/2000/svg", n);
+     sN(n,v)
+     return n
+    },
+    rex = /([qesf])(\d+)/,
+
+    pass = e => {
+
+     let
+      id = e.target.getAttributeNS(null,"id"),
+      cR = id.match(rex)[1],
+      cN = Number(id.match(rex)[2]),
+      oId = `${cR}${cN%2<1?cN+1:cN-1}`,
+      nId = cR==="q"?`e${f(cN,2)}`:cR==="e"?`s${f(cN,2)}`:cR==="s"?`f${f(cN,2)}`:`w${f(cN,2)}`,
+      nP = cR==="q"?ep[f(cN,2)]:cR==="e"?sp[f(cN,2)]:cR==="s"?fp[f(cN,2)]:{x:0,y:0},
+      nM = cR==="q"?em[f(cN,2)]:cR==="e"?sm[f(cN,2)]:cR==="s"?fm[f(cN,2)]:`M 0 0`,
+      o = gId(oId),
+      am = gN("animateMotion",{path:nM,dur:"1s",fill:"freeze",begin:`click`})
+
+     while (o.firstChild) {
+      o.removeChild(o.firstChild);
+     }
+     o.removeEventListener("click",pass)
+
+     setTimeout(()=>{
+      while (e.target.firstChild) {
+       e.target.removeChild(e.target.firstChild);
+      }
+      
+      if(cR!="f"){
+       e.target.appendChild(am)
+      }
+      sN(e.target,{cx:nP.x,cy:nP.y,id:nId})
+      if(cR==="f"){
+       e.target.removeEventListener("click",pass)
+      }
+     },1000)
+
+    }
+
+   for(let i=0;i<qr.length;i++){
+    svg.appendChild(gN("path",{id:`q${i}r`,d:qr[i],stroke:"#eeeeee",strokeWidth:.3,strokeLinecap:"square",fill:"none"}))
+   }
+
+   for(let i=0;i<er.length;i++){
+    svg.appendChild(gN("path",{d:er[i],stroke:"#eeeeee",strokeWidth:.4,strokeLinecap:"square",fill:"none"}))
+   }
+
+   for(let i=0;i<sr.length;i++){
+    svg.appendChild(gN("path",{d:sr[i],stroke:"#eeeeee",strokeWidth:.5,strokeLinecap:"square",fill:"none"}))
+   }
+
+   for(let i=0;i<fr.length;i++){
+    svg.appendChild(gN("path",{d:fr[i],stroke:"#eeeeee",strokeWidth:.6,strokeLinecap:"square",fill:"none"}))
+   }
+
+   for(let i=0;i<qp.length;i++){
+    let
+     c = gN("circle",{id:`q${i}`,cx:qp[i].x,cy:qp[i].y,r:1.2,fill:`hsl(${i*22.5} 80% 80%)`,stroke:"none"}),
+     am = gN("animateMotion",{path:qm[i],dur:"1s",fill:"freeze",begin:`click`})
+
+    c.addEventListener("click",pass)
+
+    c.appendChild(am)
+    svg.appendChild(c)
+   }
+
+  </script> 
  </body>
 </html>
