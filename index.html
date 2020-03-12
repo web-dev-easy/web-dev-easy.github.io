@@ -69,7 +69,7 @@
    aP.forEach((j,k)=>{
     let paD=``,pa
     j.forEach((i,l)=>{
-     let pS = l===0?`M ${i.x} ${i.y}`:` L ${i.x} ${i.y}`
+     let pS = l===0?`M ${i.x} ${i.y}`:l===j.length?` L ${i.x} ${i.y} Z`:` L ${i.x} ${i.y}`
      paD+=pS
     })
     pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:.5,fill:"none"})
