@@ -65,7 +65,7 @@
       cR = id.match(rex)[1],
       cN = Number(id.match(rex)[2]),
       oId = `${cR}${cN%2<1?cN+1:cN-1}`,
-      nP = cr==="q"?ep[f(cN,2)]:cr==="e"?sp[f(cN,2)]:cr==="s"?fp[f(cN,2)]:null,
+      nP = cR==="q"?ep[f(cN,2)]:cR==="e"?sp[f(cN,2)]:cR==="s"?fp[f(cN,2)]:null,
       o = gId(oId)
 
      setTimeout(()=>{
