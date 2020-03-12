@@ -52,20 +52,6 @@
     aP.push(createPoint(i))
    }
 
-   aP.forEach((j,k)=>j.forEach((i,l)=>{
-    let 
-     c = cN("circle",{cx:i.x,cy:i.y,r:.7,fill:`hsl(${k*30} 95% 75%)`})
-    svg.appendChild(c)
-   }))
-
-   /*aP.forEach((i,k)=>{
-    let paD=``,pa
-    i.forEach(j=>{
-     let pS = l===0?`M ${j.x} ${j.y}`:` L ${j.x} ${j.y}`
-     paD.concat(pS)
-    })
-   })*/
-
    aP.forEach((j,k)=>{
     let paD=``,pa
     j.forEach((i,l)=>{
@@ -75,6 +61,12 @@
     pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:.5,fill:"none"})
     svg.appendChild(pa)
    })
+
+   aP.forEach((j,k)=>j.forEach((i,l)=>{
+    let 
+     c = cN("circle",{cx:i.x,cy:i.y,r:.7,fill:`hsl(${k*30} 95% 75%)`})
+    svg.appendChild(c)
+   }))
   </script> 
  </body>
 </html>
