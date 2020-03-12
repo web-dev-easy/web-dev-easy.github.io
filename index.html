@@ -67,9 +67,9 @@
       cR = id.match(rex)[1],
       cN = Number(id.match(rex)[2]),
       oId = `${cR}${cN%2<1?cN+1:cN-1}`,
-      nId = cR==="q"?`e${f(cN,2)}`:cR==="e"?`s${f(cN,2)}`:cR==="s"?`f${f(cN,2)}`:null,
-      nP = cR==="q"?ep[f(cN,2)]:cR==="e"?sp[f(cN,2)]:cR==="s"?fp[f(cN,2)]:null,
-      nM = cR==="q"?em[f(cN,2)]:cR==="e"?sm[f(cN,2)]:cR==="s"?fm[f(cN,2)]:null,
+      nId = cR==="q"?`e${f(cN,2)}`:cR==="e"?`s${f(cN,2)}`:cR==="s"?`f${f(cN,2)}`:`w${f(cN,2)}`,
+      nP = cR==="q"?ep[f(cN,2)]:cR==="e"?sp[f(cN,2)]:cR==="s"?fp[f(cN,2)]:{x:0,y:0},
+      nM = cR==="q"?em[f(cN,2)]:cR==="e"?sm[f(cN,2)]:cR==="s"?fm[f(cN,2)]:`M 0 0`,
       o = gId(oId),
       am = gN("animateMotion",{path:nM,dur:"1s",fill:"freeze",begin:`click`})
 
@@ -82,8 +82,14 @@
       while (e.target.firstChild) {
        e.target.removeChild(e.target.firstChild);
       }
+      
+      if(cR!="f"){
+       e.target.appendChild(am)
+      }
       sN(e.target,{cx:nP.x,cy:nP.y,id:nId})
-      e.target.appendChild(am)
+      if(cR==="f"){
+       e.target.removeEventListener("click",pass)
+      }
      },1000)
 
     }
