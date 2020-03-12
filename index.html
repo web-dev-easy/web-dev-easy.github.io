@@ -59,8 +59,8 @@
     }
    }*/
 
-   aP.forEach(j=>j.forEach(i=>{
-    let c = cN("circle",{cx:i.x,cy:i.y,r:2,fill:"#2222ee"})
+   aP.forEach((j,k)=>j.forEach(i=>{
+    let c = cN("circle",{cx:i.x,cy:i.y,r:2,fill:`hsl(${k*30} 95% 75%)`})
     svg.appendChild(c)
    }))
   </script> 
