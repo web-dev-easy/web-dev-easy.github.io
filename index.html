@@ -68,13 +68,17 @@
       nP = cR==="q"?ep[f(cN,2)]:cR==="e"?sp[f(cN,2)]:cR==="s"?fp[f(cN,2)]:null,
       o = gId(oId)
 
+     while (o.firstChild) {
+      o.removeChild(o.firstChild);
+     }
+     o.setAttributeNS(null,"fill","#ff3333")
+     o.removeEventListener("click",pass)
+
      setTimeout(()=>{
       while (e.target.firstChild) {
        e.target.removeChild(e.target.firstChild);
       }
       sN(e.target,{cx:nP.x,cy:nP.y})
-      o.setAttributeNS(null,"fill","#ff3333")
-      o.removeEventListener("click",pass)
      },1000)
 
      /*let
