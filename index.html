@@ -58,15 +58,23 @@
     svg.appendChild(c)
    }))
 
+   /*aP.forEach((i,k)=>{
+    let paD=``,pa
+    i.forEach(j=>{
+     let pS = l===0?`M ${j.x} ${j.y}`:` L ${j.x} ${j.y}`
+     paD.concat(pS)
+    })
+   })*/
+
    aP.forEach((j,k)=>{
     let paD=``,pa
     j.forEach((i,l)=>{
      let pS = l===0?`M ${i.x} ${i.y}`:` L ${i.x} ${i.y}`
      paD.concat(pS)
-    }
+    })
     pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`strokeWidth:.5,fill:"none"})
     svg.appendChild(pa)
-   }))
+   })
   </script> 
  </body>
 </html>
