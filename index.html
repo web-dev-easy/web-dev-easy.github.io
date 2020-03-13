@@ -83,9 +83,10 @@
 
    aP.forEach((j,k)=>{
     let 
-      c = cN("circle",{r:3}),
-      aM = cN("animateMotion",{dur:`${k+1}s`,repeatCount:"indefinite"}),
+      c = cN("circle",{r:2}),
+      aM = cN("animateMotion",{dur:`${k+1}s`}),
       paD =``
+      aM.setAttribute("repeatCount","indefinite")
     j.forEach((i,l)=>{
      if(l===0){
        sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
