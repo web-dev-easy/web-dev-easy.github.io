@@ -72,7 +72,8 @@
       paD =``,pS
       aM.setAttribute("repeatCount","indefinite")
     j.forEach((i,l)=>{
-     if(l===0){
+     let s = 4,n=s>j.length?l%s:s
+     if(l===n){
        sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
      }
      if(k===0){
