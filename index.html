@@ -94,7 +94,7 @@
      let pS = l===0?`M 0 0`:l+1===j.length?` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y} Z`:` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y}`
      paD+=pS
     })
-    sN(aM,{d:paD})
+    sN(aM,{path:paD})
     c.appendChild(aM)
     svg.appendChild(c)
    })
