@@ -62,16 +62,33 @@
     svg.appendChild(pa)
    })
 
-   aP.forEach((j,k)=>{
+   /*aP.forEach((j,k)=>{
     let 
       c = cN("circle",{r:2}),
-      aM = cN("animateMotion",{dur:`${k+1}s`),
+      aM = cN("animateMotion",{dur:`${k+1}s}`),
       paD =``
     j.forEach((i,l)=>{
      if(l===0){
        sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
      }
      let pS = l===0?`M 0 0:l+1===j.length?` l ${aP[k][i-1].x-i.x} ${aP[k][i-1].y-i.y} Z`:` l ${aP[k][i-1].x-i.x} ${aP[k][i-1].y-i.y}`
+     paD+=pS
+    })
+    sN(aM,{d:paD})
+    c.appendChild(aM)
+    svg.appendChild(c)
+   })*/
+
+   aP.forEach((j,k)=>{
+    let 
+      c = cN("circle",{r:2}),
+      aM = cN("animateMotion",{dur:`${k+1}s`}),
+      paD =``
+    j.forEach((i,l)=>{
+     if(l===0){
+       sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
+     }
+     let pS = l===0?`M 0 0`:l+1===j.length?` l ${i.x-aP[k][l-1].x} ${i.yaP[k][l-1].y} Z`:` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y}`
      paD+=pS
     })
     sN(aM,{d:paD})
