@@ -82,7 +82,7 @@
    aP.forEach((j,k)=>{
     let 
       c = cN("circle",{r:2}),
-      aM = cN("animateMotion",{dur:`${k+1}s`}),
+      aM = cN("animateMotion",{dur:`${k+1}s`,repeatCount:"indefinite",begin:"click"}),
       paD =``
     j.forEach((i,l)=>{
      if(l===0){
