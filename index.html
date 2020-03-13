@@ -61,7 +61,7 @@
      let pS = l===0?`M ${i.x} ${i.y}`:l+1===j.length?` L ${i.x} ${i.y} Z`:` L ${i.x} ${i.y}`
      paD+=pS
     })
-    pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:1,fill:"none"})
+    pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:.5,fill:"none"})
     svg.appendChild(pa)
    })
 
@@ -72,7 +72,7 @@
       paD =``,pS
       aM.setAttribute("repeatCount","indefinite")
     j.forEach((i,l)=>{
-     if(l===l%3){
+     if(l===l%4){
        sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
      }
      if(k===0){
