@@ -62,12 +62,21 @@
     svg.appendChild(pa)
    })
 
-   aP.forEach((j,k)=>j.forEach((i,l)=>{
-    if(l===0){
-     let c = cN("circle",{cx:i.x,cy:i.y,r:1,fill:`hsl(${k*30} 95% 75%)`})
-     svg.appendChild(c)
-    }
-   }))
+   aP.forEach((j,k)=>{
+    let 
+      c = cN("circle",{r:2}),
+      aM = cN("animateMotion",{dur:`${k+1}s`),
+      paD =``
+    j.forEach((i,l)=>{
+     if(l===0){
+       sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
+     }
+     let pS = l===0?`M 0 0:l+1===j.length?` l ${aP[k][i-1].x-i.x} ${aP[k][i-1].y-i.y} Z`:` l ${aP[k][i-1].x-i.x} ${aP[k][i-1].y-i.y}`
+     paD+=pS
+    })
+    c.appendChild(aM)
+    svg.appendChild(c)
+   })
   </script> 
  </body>
 </html>
