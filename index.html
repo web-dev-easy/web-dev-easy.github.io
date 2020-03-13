@@ -68,16 +68,16 @@
     let 
       c = cN("circle",{r:2}),
       aM = cN("animateMotion",{dur:`${k+1}s`,begin:"svgg.click"}),
-      paD =``
+      paD =``,pS
       aM.setAttribute("repeatCount","indefinite")
     j.forEach((i,l)=>{
      if(l===0){
        sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
      }
      if(k===0){
-      let pS =`M 0 0 a 4 4 0 0 0 0 0`
+      pS =`M 0 0 a 4 4 0 0 0 0 0`
      } else {
-      let pS = l===0?`M 0 0`:l+1===j.length?` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y} Z`:` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y}`
+      pS = l===0?`M 0 0`:l+1===j.length?` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y} Z`:` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y}`
      }
      paD+=pS
     })
