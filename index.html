@@ -12,7 +12,9 @@
  </head>
  <body>
   <svg id="svgg" viewBox="-50 -50 100 100" width="100vw" height="100vh" xmlns:xlink="http://www.w3.org/1999/xlink">
-
+   <circle cx="0" cy="0" r="1.5" fill="#456789">
+    <animateMotion d="M 0 0 v 5 h 7 v 8 h -10" dur="10s" repeatCount="indefinite"/>
+   </circle>
   </svg>
 
   <script defer>
@@ -82,7 +84,7 @@
    aP.forEach((j,k)=>{
     let 
       c = cN("circle",{r:2}),
-      aM = cN("animateMotion",{dur:`${k+1}s`,repeatCount:"indefinite",begin:"click"}),
+      aM = cN("animateMotion",{dur:`${k+1}s`}),
       paD =``
     j.forEach((i,l)=>{
      if(l===0){
