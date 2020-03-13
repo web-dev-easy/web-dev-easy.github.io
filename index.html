@@ -58,13 +58,13 @@
      let pS = l===0?`M ${i.x} ${i.y}`:l+1===j.length?` L ${i.x} ${i.y} Z`:` L ${i.x} ${i.y}`
      paD+=pS
     })
-    pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:.5,fill:"none"})
+    pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:1,fill:"none"})
     svg.appendChild(pa)
    })
 
    aP.forEach((j,k)=>j.forEach((i,l)=>{
     let 
-     c = cN("circle",{cx:i.x,cy:i.y,r:.7,fill:`hsl(${k*30} 95% 75%)`})
+     c = cN("circle",{cx:i.x,cy:i.y,r:.5,fill:`hsl(${k*30} 95% 75%)`})
     svg.appendChild(c)
    }))
   </script> 
