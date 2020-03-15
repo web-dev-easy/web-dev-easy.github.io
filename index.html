@@ -3,27 +3,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <meta name="theme-color" content="#444444">
   <title>web dev easy</title>
+  <script src="https://d3js.org/d3.v5.min.js" defer></script>
   <link rel="stylesheet" href="./css/style.css">
   <style>
    body{
-    background:#444444;
+    background:#2e2edd;
    }
   </style>
  </head>
  <body>
-  <svg id="svgg" viewBox="-50 -50 100 100" width="100vw" height="100vh" xmlns:xlink="http://www.w3.org/1999/xlink">
-   <circle cx="0" cy="0" r="4" fill="none" stroke="hsl(0 95% 75%)" stroke-width="1"/>
-   <!--<circle cx="4" cy="0" r="2" fill="red">
-    <animateMotion path="M 0 0 a 1 1 0 0 1 -8 0 a 1 1 0 0 1 8 0" dur="1s" repeatCount="indefinite" begin="svgg.click"/>
-   </circle>-->
-  </svg>
-
   <script defer>
    let
-    gId = n => document.getElementById(n),
-
-    svg = gId("svgg"),
-
     dtor = n => n*Math.PI/180,
 
     f=(x,y)=>Math.floor(x/y),
@@ -39,54 +29,20 @@
      return Array.from({length:n},(_,i) => getPos(i*(360/n),n*4))
     },
 
-    sN = (n, v) =>{
-     for (var p in v){
-      n.setAttributeNS(null, p.replace(/[A-Z]/g, function(m, p, o, s) { return `-${m.toLowerCase()}`}),v[p])
-     }
-    },
+    svg = d3.select("body")
+            .append("svg")
+              .attr("viewBox","-50 -50 100 100")
 
-    cN = (n, v) =>{
-     n = document.createElementNS("http://www.w3.org/2000/svg", n);
-     sN(n,v)
-     return n
-    },aP=[];
-
-   for(let i=1;i<13;i++){
-    aP.push(createPoint(i))
-   }
-
-   aP.forEach((j,k)=>{
-    let paD=``,pa
-    j.forEach((i,l)=>{
-     let pS = l===0?`M ${i.x} ${i.y}`:l+1===j.length?` L ${i.x} ${i.y} Z`:` L ${i.x} ${i.y}`
-     paD+=pS
-    })
-    pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:.5,fill:"none"})
-    svg.appendChild(pa)
-   })
-
-   aP.forEach((j,k)=>{
-    let 
-      c = cN("circle",{r:2}),
-      aM = cN("animateMotion",{dur:`${k+1}s`,begin:"svgg.click"}),
-      paD =``,pS
-      aM.setAttribute("repeatCount","indefinite")
-    j.forEach((i,l)=>{
-     let s = 4,n=s>j.length?l%s:s
-     if(l===n){
-       sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
-     }
-     if(k===0){
-      pS =`M 0 0 a 1 1 0 0 1 -8 0 a 1 1 0 0 1 8 0`
-     } else {
-      pS = l===0?`M 0 0`:l+1===j.length?` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y} Z`:` l ${i.x-aP[k][l-1].x} ${i.y-aP[k][l-1].y}`
-     }
-     paD+=pS
-    })
-    sN(aM,{path:paD})
-    c.appendChild(aM)
-    svg.appendChild(c)
-   })
+   svg.selectAll("circle")
+      .data([5,10,15])
+      .enter()
+        .append("circle")
+          .attr("fill","transparent")
+          .attr("stroke",function(d,i){return `hsl${i*120} 100% 50%`})
+          .attr("stroke-width",.5)
+          .attr("cx",0)
+          .attr("cy",0)
+          .attr("r",function(d){return d})
   </script> 
  </body>
 </html>
