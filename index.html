@@ -13,39 +13,19 @@
  </head>
  <body>
   <script defer>
-   let
-    dtor = n => n*Math.PI/180,
-
-    f=(x,y)=>Math.floor(x/y),
-
-    getPos = (d,r) => {
-     let
-      x = Math.cos(dtor(d))*r,
-      y = Math.sin(dtor(d))*r
-     return {x: x,y: y}
-    },
-
-    createPoint = n => {
-     return Array.from({length:n},(_,i) => getPos(i*(360/n),n*4))
-    },
-
-
-    svg = d3.select("body")
+   var w=500;
+   var h=50;
+   var svg = d3.select("body")
             .append("svg")
-              .attr("viewBox","-50 -50 100 100")
-              .attr("width","100vw")
-              .attr("height","100vh")
-
-   svg.selectAll("circle")
-      .data([5,10,15])
-      .enter()
-        .append("circle")
-          .attr("fill","transparent")
-          .attr("stroke",function(d,i){return `hsl${i*120} 100% 50%`})
-          .attr("stroke-width",.5)
-          .attr("cx",0)
-          .attr("cy",0)
-          .attr("r",function(d){return d})
+            .attr("width", w)
+            .attr("height", h);
+   var circles = svg.selectAll("circle")
+                 .data(dataset)
+                 .enter()
+                 .append("circle");
+   circles.attr("cx", function(d, i) {return (i * 50) + 25;})
+          .attr("cy", h/2)
+          .attr("r", function(d) {return d;});
   </script> 
  </body>
 </html>
