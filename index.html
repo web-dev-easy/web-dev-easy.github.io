@@ -15,19 +15,27 @@
   <script defer>
    var w=100;
    var h=100;
-   var dataset = [ 5, 10, 15, 20, 25 ];
+   var set = [ 5, 10, 15, 20, 25 ];
    d3.select("body")
      .append("svg")
        .attr("width",`${w}vw`)
        .attr("height",`${h}vh`)
        .attr("viewBox",`-50 -50 100 100`)
+     .selectAll("circle")
+     .data(set).enter()
      .append("circle")
+       .attr("cx",function(d,i){return Math.cos(((i*(360/set.length))-90)*(Math.PI/180))*25})
+       .attr("cy",function(d,i){return Math.sin(((i*(360/set.length))-90)*(Math.PI/180))*25})
+       .attr("r",4)
+       .attr("fill",`hsl(${360/set.length*d} 100% 50%)`)
+
+/*   .append("circle")
        .attr("cx",0)
        .attr("cy",0)
        .attr("r",20)
        .attr("fill","gold")
 
-/* var svg = d3.select("body")
+   var svg = d3.select("body")
                .append("svg")
                  .attr("width",`${w}vw`)
                  .attr("height",`${h}vh`)
