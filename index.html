@@ -29,9 +29,12 @@
      return Array.from({length:n},(_,i) => getPos(i*(360/n),n*4))
     },
 
+
     svg = d3.select("body")
             .append("svg")
               .attr("viewBox","-50 -50 100 100")
+              .attr("width","100vw")
+              .attr("height","100vh")
 
    svg.selectAll("circle")
       .data([5,10,15])
