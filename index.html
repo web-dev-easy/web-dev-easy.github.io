@@ -27,7 +27,7 @@
        .attr("cx",function(d,i){return Math.cos(((i*(360/set.length))-90)*(Math.PI/180))*25})
        .attr("cy",function(d,i){return Math.sin(((i*(360/set.length))-90)*(Math.PI/180))*25})
        .attr("r",4)
-       .attr("fill",`hsl(${360/set.length*d} 100% 75%)`)
+       .attr("fill",`hsl(${d} 100% 75%)`)
 
 /*   .append("circle")
        .attr("cx",0)
