@@ -13,14 +13,21 @@
  </head>
  <body>
   <script defer>
-   var w=500;
-   var h=50;
+   var w=100;
+   var h=100;
    var dataset = [ 5, 10, 15, 20, 25 ];
    var svg = d3.select("body")
                .append("svg")
-               .attr("width", w)
-               .attr("height", h);
-   var circles = svg.selectAll("circle")
+                 .attr("width",`${w}vw`)
+                 .attr("height",`${h}vh`)
+                 .attr("viewBox",`-50 -50 100 100`)
+               .append("circle")
+                 .attr("cx",0)
+                 .attr("cy",0)
+                 .attr("r",20)
+                 .attr("fill","#eeeeee")
+
+/* var circles = svg.selectAll("circle")
                     .data(dataset)
                     .enter()
                     .append("circle");
@@ -29,7 +36,7 @@
           .attr("r", function(d) {return d;})
           .attr("fill", "steelblue")
           .attr("stroke", "orange")
-          .attr("stroke-width", function(d) {return d/2});
+          .attr("stroke-width", function(d) {return d/2});*/
   </script>
  </body>
 </html>
