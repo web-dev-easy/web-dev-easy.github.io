@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="theme-color" content="steelblue">
+    
+  
+    <title>Chord and Scale Generator</title>
+    
+    <style type="text/css">
+    
+    :root {
+      --p:hsl(50,100%,95%);
+      --i:hsl(0,100%,80%);
+    }
+    
+    body {
+      background:steelblue;
+      color:var(--p);
+      margin:0;
+    }
+    
+    select {
+      color:var(--p);
+      border:none;
+      background:none;
+      font-size:1.5rem;
+    }
+    
+    #cop {
+      display:flex;
+      justify-content:space-around;
+    }
+    
+    .s {
+      stroke:var(--p);
+    }
+    
+    .n {
+      fill:var(--p);
+    }
+    
+    .m {
+      fill:var(--p);
+    }
+    
+    .h {
+      display:none;
+    }
+    
+    .u {
+      stroke:var(--p);
+      font-size:.3rem;
+      text-anchor:middle;
+      dominant-baseline:middle;
+    }
+    
+    .c {
+      fill:var(--i);
+    }
+    
+    .y {
+      font-family:'San-sarif';
+    }
+    </style>
+    
+  </head>
+  
+  <body>
+    
+    <h2>
+    <select id='nip'>
+      <option>Fb</option>
+      <option>Cb</option>
+      <option>Gb</option>
+      <option>Db</option>
+      <option>Ab</option>
+      <option>Eb</option>
+      <option>Bb</option>
+      <option>F</option>
+      <option selected>C</option>
+      <option>G</option>
+      <option>D</option>
+      <option>A</option>
+      <option>E</option>
+      <option>B</option>
+      <option>F#</option>
+      <option>C#</option>
+      <option>G#</option>
+      <option>D#</option>
+      <option>A#</option>
+    </select>
+    
+    major
+    <!--<select>
+      <option>major</option>
+      <option>minor</option>
+    </select>-->
+    
+    scale
+    </h2>
+    
+    
+    
+    <svg width="100vw" height="30vh" viewBox="0 0 200 100">
+    
+      
+      
+      <line x1="0" y1="30" x2="200" y2="30" class="s"></line>
+      <line x1="0" y1="38" x2="200" y2="38" class="s"></line>
+      <line x1="0" y1="46" x2="200" y2="46" class="s"></line>
+      <line x1="0" y1="54" x2="200" y2="54" class="s"></line>
+      <line x1="0" y1="62" x2="200" y2="62" class="s"></line>
+      <line x1="0" y1="70" x2="200" y2="70" class="s"></line>
+      
+      <line x1="4" y1="30" x2="4" y2="70" class="s"></line>
+      <line x1="8" y1="30" x2="8" y2="70" class="s"></line>
+      <line x1="24" y1="30" x2="24" y2="70" class="s"></line>
+      <line x1="40" y1="30" x2="40" y2="70" class="s"></line>
+      <line x1="56" y1="30" x2="56" y2="70" class="s"></line>
+      <line x1="72" y1="30" x2="72" y2="70" class="s"></line>
+      <line x1="88" y1="30" x2="88" y2="70" class="s"></line>
+      <line x1="104" y1="30" x2="104" y2="70" class="s"></line>
+      <line x1="120" y1="30" x2="120" y2="70" class="s"></line>
+      <line x1="136" y1="30" x2="136" y2="70" class="s"></line>
+      <line x1="152" y1="30" x2="152" y2="70" class="s"></line>
+      <line x1="168" y1="30" x2="168" y2="70" class="s"></line>
+      <line x1="184" y1="30" x2="184" y2="70" class="s"></line>
+      
+      <circle cx="48" cy="50" r="2" class="m"></circle>
+      <circle cx="80" cy="50" r="2" class="m"></circle>
+      <circle cx="112" cy="50" r="2" class="m"></circle>
+      <circle cx="192" cy="58" r="2" class="m"></circle>
+      <circle cx="192" cy="42" r="2" class="m"></circle>
+      
+      <text x="16" y="85" class="u">1</text>
+      <text x="32" y="85" class="u">2</text>
+      <text x="48" y="85" class="u">3</text>
+      <text x="64" y="85" class="u">4</text>
+      <text x="80" y="85" class="u">5</text>
+      <text x="96" y="85" class="u">6</text>
+      <text x="112" y="85" class="u">7</text>
+      <text x="128" y="85" class="u">8</text>
+      <text x="144" y="85" class="u">9</text>
+      <text x="160" y="85" class="u">10</text>
+      <text x="176" y="85" class="u">11</text>
+      <text x="192" y="85" class="u">12</text>
+      
+      <g id="notes">
+      <circle cx="4" cy="70" r="4" class="E Fb n"></circle>
+      <circle cx="16" cy="70" r="4" class="F E# n"></circle>
+      <circle cx="32" cy="70" r="4" class="F# Gb n h"></circle>
+      <circle cx="48" cy="70" r="4" class="G F## n"></circle>
+      <circle cx="64" cy="70" r="4" class="G# Ab n h"></circle>
+      <circle cx="80" cy="70" r="4" class="A G## Bbb n"></circle>
+      <circle cx="96" cy="70" r="4" class="A# Bb n h"></circle>
+      <circle cx="112" cy="70" r="4" class="B Cb n"></circle>
+      <circle cx="128" cy="70" r="4" class="C B# n"></circle>
+      <circle cx="144" cy="70" r="4" class="C# Db n h"></circle>
+      <circle cx="160" cy="70" r="4" class="D C## n"></circle>
+      <circle cx="176" cy="70" r="4" class="D# Eb n h"></circle>
+      <circle cx="192" cy="70" r="4" class="E Fb n"></circle>
+      
+      <circle cx="4" cy="62" r="4" class="A G## Bbb n"></circle>
+      <circle cx="16" cy="62" r="4" class="A# Bb n h"></circle>
+      <circle cx="32" cy="62" r="4" class="B Cb n"></circle>
+      <circle cx="48" cy="62" r="4" class="C B# n"></circle>
+      <circle cx="64" cy="62" r="4" class="C# Db n h"></circle>
+      <circle cx="80" cy="62" r="4" class="D C## n"></circle>
+      <circle cx="96" cy="62" r="4" class="D# Eb n h"></circle>
+      <circle cx="112" cy="62" r="4" class="E Fb n"></circle>
+      <circle cx="128" cy="62" r="4" class="F E# n"></circle>
+      <circle cx="144" cy="62" r="4" class="F# Gb n h"></circle>
+      <circle cx="160" cy="62" r="4" class="G F## n"></circle>
+      <circle cx="176" cy="62" r="4" class="G# Ab n h"></circle>
+      <circle cx="192" cy="62" r="4" class="A G## Bbb n"></circle>
+      
+      <circle cx="4" cy="54" r="4" class="D C## n"></circle>
+      <circle cx="16" cy="54" r="4" class="D# Eb n h"></circle>
+      <circle cx="32" cy="54" r="4" class="E Fb n"></circle>
+      <circle cx="48" cy="54" r="4" class="F E# n"></circle>
+      <circle cx="64" cy="54" r="4" class="F# Gb n h"></circle>
+      <circle cx="80" cy="54" r="4" class="G F## n"></circle>
+      <circle cx="96" cy="54" r="4" class="G# Ab n h"></circle>
+      <circle cx="112" cy="54" r="4" class="A G## Bbb n"></circle>
+      <circle cx="128" cy="54" r="4" class="A# Bb n h"></circle>
+      <circle cx="144" cy="54" r="4" class="B Cb n"></circle>
+      <circle cx="160" cy="54" r="4" class="C B# n"></circle>
+      <circle cx="176" cy="54" r="4" class="C# Db n h"></circle>
+      <circle cx="192" cy="54" r="4" class="D C## n"></circle>
+      
+      <circle cx="4" cy="46" r="4" class="G F## n"></circle>
+      <circle cx="16" cy="46" r="4" class="G# Ab n h"></circle>
+      <circle cx="32" cy="46" r="4" class="A G## Bbb n"></circle>
+      <circle cx="48" cy="46" r="4" class="A# Bb n h"></circle>
+      <circle cx="64" cy="46" r="4" class="B Cb n"></circle>
+      <circle cx="80" cy="46" r="4" class="C B# n"></circle>
+      <circle cx="96" cy="46" r="4" class="C# Db n h"></circle>
+      <circle cx="112" cy="46" r="4" class="D C## n"></circle>
+      <circle cx="128" cy="46" r="4" class="D# Eb n h"></circle>
+      <circle cx="144" cy="46" r="4" class="E Fb n"></circle>
+      <circle cx="160" cy="46" r="4" class="F E# n"></circle>
+      <circle cx="176" cy="46" r="4" class="F# Gb n h"></circle>
+      <circle cx="192" cy="46" r="4" class="G F## n"></circle>
+      
+      <circle cx="4" cy="38" r="4" class="B Cb n"></circle>
+      <circle cx="16" cy="38" r="4" class="C B# n"></circle>
+      <circle cx="32" cy="38" r="4" class="C# Db n h"></circle>
+      <circle cx="48" cy="38" r="4" class="D C## n"></circle>
+      <circle cx="64" cy="38" r="4" class="D# Eb n h"></circle>
+      <circle cx="80" cy="38" r="4" class="E Fb n"></circle>
+      <circle cx="96" cy="38" r="4" class="F E# n"></circle>
+      <circle cx="112" cy="38" r="4" class="F# Gb n h"></circle>
+      <circle cx="128" cy="38" r="4" class="G F## n"></circle>
+      <circle cx="144" cy="38" r="4" class="G# Ab n h"></circle>
+      <circle cx="160" cy="38" r="4" class="A G## Bbb n"></circle>
+      <circle cx="176" cy="38" r="4" class="A# Bb n h"></circle>
+      <circle cx="192" cy="38" r="4" class="B Cb n"></circle>
+      
+      <circle cx="4" cy="30" r="4" class="E Fb n"></circle>
+      <circle cx="16" cy="30" r="4" class="F E# n"></circle>
+      <circle cx="32" cy="30" r="4" class="F# Gb n h"></circle>
+      <circle cx="48" cy="30" r="4" class="G F## n"></circle>
+      <circle cx="64" cy="30" r="4" class="G# Ab n h"></circle>
+      <circle cx="80" cy="30" r="4" class="A G## Bbb n"></circle>
+      <circle cx="96" cy="30" r="4" class="A# Bb n h"></circle>
+      <circle cx="112" cy="30" r="4" class="B Cb n"></circle>
+      <circle cx="128" cy="30" r="4" class="C B# n"></circle>
+      <circle cx="144" cy="30" r="4" class="C# Db n h"></circle>
+      <circle cx="160" cy="30" r="4" class="D C## n"></circle>
+      <circle cx="176" cy="30" r="4" class="D# Eb n h"></circle>
+      <circle cx="192" cy="30" r="4" class="E Fb n"></circle>
+      </g>
+    </svg>
+    
+    <div id="cop">
+      <div>
+      <h4>I</h4>
+      <h4 class="y" onclick="light(0,2,4,this)">C</h4>
+      </div>
+      <div>
+      <h4>ii</h4>
+      <h4 class="y" onclick="light(1,3,5,this)">Dm</h4>
+      </div>
+      <div>
+      <h4>iii</h4>
+      <h4 class="y" onclick="light(2,4,6,this)">Em</h4>
+      </div>
+      <div>
+      <h4>IV</h4>
+      <h4 class="y" onclick="light(3,5,0,this)">F</h4>
+      </div>
+      <div>
+      <h4>V</h4>
+      <h4 class="y" onclick="light(4,6,1,this)">G</h4>
+      </div>
+      <div>
+      <h4>vi</h4>
+      <h4 class="y" onclick="light(5,0,2,this)">Am</h4>
+      </div>
+      <div>
+      <h4>vii</h4>
+      <h4 class="y" onclick="light(6,1,3,this)">Bdim</h4>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+      let
+        rep = ['C','D','E','F','G','A','B'];
+      const 
+        log = n => console.log(n),
+        gID = n => document.getElementById(n),
+        cof = ['Bbb','Fb','Cb','Gb','Db','Ab','Eb','Bb','F','C','G','D','A','E','B','F#','C#','G#','D#','A#','E#','B#','F##','C##','G##'],
+        nip = gID('nip'),
+        cop = gID('cop'),
+        notes = gID('notes'),
+        icb = e => {
+        
+          for(let i=0;i<notes.children.length;i++){
+            notes.children.item(i).classList.add('h')
+            notes.children.item(i).classList.remove('c')
+          }
+          
+          for(let j=0;j<cop.children.length;j++){
+            cop.children.item(j).children.item(1).style.color = "hsl(50,100%,95%)"
+          }
+        
+          for(let i=0;i<e.target.length;i++){
+          
+            if(e.target.item(i).selected){
+              let
+                key = e.target.item(i).value,
+                c = [...cof],
+                ind = c.indexOf(key),
+                res = [c[ind],c[ind+2]+'m',c[ind+4]+'m',c[ind-1],c[ind+1],c[ind+3]+'m',c[ind+5]+'dim']
+                
+              rep = [c[ind],c[ind+2],c[ind+4],c[ind-1],c[ind+1],c[ind+3],c[ind+5]]
+              
+              for(let j=0;j<res.length;j++){
+                cop.children.item(j).children.item(1).innerText = res[j]
+              }
+              for(let j=0;j<notes.children.length;j++){
+                for(let k=0;k<notes.children.item(j).classList.length;k++){
+                  for(let l=0;l<rep.length;l++){
+                    if(notes.children.item(j).classList[k] == rep[l]){
+                      notes.children.item(j).classList.remove('h')
+                    }
+                  }
+              
+                }
+              
+              }
+            }
+        
+          }
+          
+        },
+        light = (i,iii,v,e) => {
+          for(let j=0;j<cop.children.length;j++){
+            cop.children.item(j).children.item(1).style.color = "hsl(50,100%,95%)"
+          }
+          e.style.color = "hsl(0,100%,80%)"
+          for(let j=0;j<notes.children.length;j++){
+            notes.children.item(j).classList.remove('c')
+          }
+          for(let j=0;j<notes.children.length;j++){
+            for(let k=0;k<notes.children.item(j).classList.length;k++){
+              if(notes.children.item(j).classList[k] == rep[i] ||
+                 notes.children.item(j).classList[k] == rep[iii] ||
+                 notes.children.item(j).classList[k] == rep[v]){
+                notes.children.item(j).classList.add('c')
+              }
+            }
+          }
+        }
+        
+      nip.addEventListener('change',icb)
+      
+      
+    </script>
+    
+  </body>
+  
+</html>
