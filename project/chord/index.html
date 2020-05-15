@@ -14,6 +14,12 @@
     :root {
       --p:hsl(50,100%,95%);
       --i:hsl(0,100%,80%);
+      --ii:hsl(30,100%,80%);
+      --iii:hsl(60,100%,80%);
+      --iv:hsl(90,100%,80%);
+      --v:hsl(120,100%,80%);
+      --vi:hsl(150,100%,80%);
+      --vii:hsl(180,100%,80%);
     }
     
     body {
@@ -32,6 +38,11 @@
     #cop {
       display:flex;
       justify-content:space-around;
+    }
+    
+    #cop > div > h4:nth-of-type(2) {
+      font-family:'San-sarif';
+      color:var(--p);
     }
     
     .s {
@@ -64,6 +75,41 @@
     .y {
       font-family:'San-sarif';
     }
+    
+    .i {
+      color:var(--i);
+      fill:var(--i);
+    }
+    
+    .ii {
+      color:var(--ii);
+      fill:var(--ii);
+    }
+    
+    .iii {
+      color:var(--iii);
+      fill:var(--iii);
+    }
+    
+    .iv {
+      color:var(--iv);
+      fill:var(--iv);
+    }
+    
+    .v {
+      color:var(--v);
+      fill:var(--v);
+    }
+    
+    .vi {
+      color:var(--vi);
+      fill:var(--vi);
+    }
+    
+    .vii {
+      color:var(--vii);
+      fill:var(--vii);
+    }
     </style>
     
   </head>
@@ -72,7 +118,6 @@
     
     <h2>
     <select id='nip'>
-      <option>Fb</option>
       <option>Cb</option>
       <option>Gb</option>
       <option>Db</option>
@@ -88,9 +133,6 @@
       <option>B</option>
       <option>F#</option>
       <option>C#</option>
-      <option>G#</option>
-      <option>D#</option>
-      <option>A#</option>
     </select>
     
     major
@@ -132,6 +174,7 @@
       <circle cx="48" cy="50" r="2" class="m"></circle>
       <circle cx="80" cy="50" r="2" class="m"></circle>
       <circle cx="112" cy="50" r="2" class="m"></circle>
+      <circle cx="144" cy="50" r="2" class="m"></circle>
       <circle cx="192" cy="58" r="2" class="m"></circle>
       <circle cx="192" cy="42" r="2" class="m"></circle>
       
@@ -238,31 +281,31 @@
     <div id="cop">
       <div>
       <h4>I</h4>
-      <h4 class="y" onclick="light(0,2,4,this)">C</h4>
+      <h4 class="y" onclick="light(0,2,4,this,'hsl(0,100%,80%)')">C</h4>
       </div>
       <div>
       <h4>ii</h4>
-      <h4 class="y" onclick="light(1,3,5,this)">Dm</h4>
+      <h4 class="y" onclick="light(1,3,5,this,'hsl(60,100%,80%)')">Dm</h4>
       </div>
       <div>
       <h4>iii</h4>
-      <h4 class="y" onclick="light(2,4,6,this)">Em</h4>
+      <h4 class="y" onclick="light(2,4,6,this,'hsl(120,100%,80%)')">Em</h4>
       </div>
       <div>
       <h4>IV</h4>
-      <h4 class="y" onclick="light(3,5,0,this)">F</h4>
+      <h4 class="y" onclick="light(3,5,0,this,'hsl(150,100%,80%)')">F</h4>
       </div>
       <div>
       <h4>V</h4>
-      <h4 class="y" onclick="light(4,6,1,this)">G</h4>
+      <h4 class="y" onclick="light(4,6,1,this,'hsl(210,100%,80%)')">G</h4>
       </div>
       <div>
       <h4>vi</h4>
-      <h4 class="y" onclick="light(5,0,2,this)">Am</h4>
+      <h4 class="y" onclick="light(5,0,2,this,'hsl(270,100%,80%)')">Am</h4>
       </div>
       <div>
       <h4>vii</h4>
-      <h4 class="y" onclick="light(6,1,3,this)">Bdim</h4>
+      <h4 class="y" onclick="light(6,1,3,this,'hsl(330,100%,80%)')">Bdim</h4>
       </div>
     </div>
     
@@ -280,7 +323,7 @@
         
           for(let i=0;i<notes.children.length;i++){
             notes.children.item(i).classList.add('h')
-            notes.children.item(i).classList.remove('c')
+            notes.children.item(i).style.fill="hsl(50,100%,95%)"
           }
           
           for(let j=0;j<cop.children.length;j++){
@@ -317,21 +360,24 @@
           }
           
         },
-        light = (i,iii,v,e) => {
+        light = (i,iii,v,e,c) => {
           for(let j=0;j<cop.children.length;j++){
-            cop.children.item(j).children.item(1).style.color = "hsl(50,100%,95%)"
+            cop.children.item(j).children.item(1).style.color='hsl(50,100%,95%)'
           }
-          e.style.color = "hsl(0,100%,80%)"
+          
+          
+          e.style.color=c
+          
           for(let j=0;j<notes.children.length;j++){
-            notes.children.item(j).classList.remove('c')
+            notes.children.item(j).style.fill='hsl(50,100%,95%)'
           }
           for(let j=0;j<notes.children.length;j++){
-            for(let k=0;k<notes.children.item(j).classList.length;k++){
-              if(notes.children.item(j).classList[k] == rep[i] ||
-                 notes.children.item(j).classList[k] == rep[iii] ||
-                 notes.children.item(j).classList[k] == rep[v]){
-                notes.children.item(j).classList.add('c')
-              }
+            if(
+              notes.children.item(j).classList.contains(rep[i]) ||
+              notes.children.item(j).classList.contains(rep[iii]) ||
+              notes.children.item(j).classList.contains(rep[v])
+            ){
+              notes.children.item(j).style.fill=c
             }
           }
         }
