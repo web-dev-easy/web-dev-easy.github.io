@@ -61,7 +61,7 @@
      let pS = l===0?`M ${i.x} ${i.y}`:l+1===j.length?` L ${i.x} ${i.y} Z`:` L ${i.x} ${i.y}`
      paD+=pS
     })
-    pa = cN("path",{d:paD,stroke:`hsl(${k*30} 95% 70%)`,strokeWidth:.5,fill:"none"})
+    pa = cN("path",{d:paD,stroke:`rgb(${k*30} ${k*20} ${k*17}`,strokeWidth:.5,fill:"none"})
     svg.appendChild(pa)
    })
 
@@ -74,7 +74,7 @@
     j.forEach((i,l)=>{
      let s = 4,n=s>j.length?l%s:s
      if(l===0){
-       sN(c,{cx:i.x,cy:i.y,fill:`hsl(${k*30} 95% 75%)`})
+       sN(c,{cx:i.x,cy:i.y,fill:`rgb(${k*30} ${k*20} ${k*17})`})
      }
      if(k===0){
       pS =`M 0 0 a 1 1 0 0 1 -8 0 a 1 1 0 0 1 8 0`
